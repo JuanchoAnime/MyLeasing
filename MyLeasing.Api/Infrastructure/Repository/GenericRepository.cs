@@ -21,7 +21,7 @@
             this.Entity = this._context.Set<Dto>();
         }
 
-        public async Task<bool> Delete(int id)
+        public virtual async Task<bool> Delete(int id)
         {
             var dto = await FindById(id);
             Entity.Remove(dto);
@@ -29,13 +29,13 @@
             return true;
         }
 
-        public async Task<List<Dto>> FindAll()
+        public virtual async Task<List<Dto>> FindAll()
         {
             var list = await Entity.ToListAsync();
             return list;
         }
 
-        public async Task<Dto> FindById(int id)
+        public virtual async Task<Dto> FindById(int id)
         {
             var dto = await Entity.FindAsync(id);
             if(dto==null)
@@ -43,14 +43,14 @@
             return dto;
         }
 
-        public async Task<Dto> Save(Dto entity)
+        public virtual async Task<Dto> Save(Dto entity)
         {
             await this.Entity.AddAsync(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task<Dto> Update(Dto entity)
+        public virtual async Task<Dto> Update(Dto entity)
         {
             try
             {
@@ -66,7 +66,6 @@
                     throw new Exception(ex.Message);
             }
         }
-
 
         private bool OwnerDtoExists(int id)
         {
