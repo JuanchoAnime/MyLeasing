@@ -4,8 +4,8 @@
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    [Table(name: "Owner")]
-    public class OwnerDto: BaseEntity
+    [Table(name: "Lessee")]
+    public class LesseeDto: BaseEntity
     {
         [Required(ErrorMessage = "The field {0} is Mandatory")]
         [MaxLength(30, ErrorMessage = "The field {0}  can not have more than {1} characteres")]
@@ -27,8 +27,6 @@
 
         [MaxLength(100, ErrorMessage = "The field {0}  can not have more than {1} characteres")]
         public string Address { get; set; }
-
-        public ICollection<PropertyDto> Properties { get; set; }
 
         public ICollection<ContractDto> Contracts { get; set; }
     }
