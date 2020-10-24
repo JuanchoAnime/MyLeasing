@@ -10,7 +10,7 @@
     [ApiController]
     public class GenericController<Rest, Dto> : ControllerBase where Dto : BaseEntity where Rest : BaseRest
     {
-        protected GenericApplication<Rest, Dto> Application { get; }
+        private GenericApplication<Rest, Dto> Application { get; }
 
         public GenericController(GenericApplication<Rest, Dto> application)
         {

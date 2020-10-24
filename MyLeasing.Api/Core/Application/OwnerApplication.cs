@@ -10,11 +10,13 @@
 
     public class OwnerApplication : GenericApplication<OwnerRest, OwnerDto>
     {
+        private readonly IOwnerRepository _ownerRepository;
         private readonly IUserHelper _userHelper;
 
         public OwnerApplication(IOwnerRepository ownerRepository, IMapper mapper, IUserHelper userHelper)
             : base(ownerRepository, mapper)
         {
+            this._ownerRepository = ownerRepository;
             this._userHelper = userHelper;
         }
 
@@ -41,6 +43,12 @@
                 return Mapper.Map<UserRest>(userDto);
             }
             return null;
+        }
+
+        public async Task<PropertyRest> AddProperty(PropertyRest property)
+        {
+            var data = await this._ownerRepository.AddProperty(Mapper.Map<PropertyDto>(property), property.IdOwner, property.PropertyType.Id);
+            return Mapper.Map<PropertyRest>(data);
         }
     }
 }

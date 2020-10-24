@@ -1,6 +1,7 @@
 ﻿namespace MyLeasing.Api.Infrastructure.Mapper
 {
     using MyLeasing.Api.Infrastructure.Data.Entities;
+    using MyLeasing.Common.AdvancedRest;
     using MyLeasing.Common.Rest;
 
     public class AutoMapperProfile : AutoMapper.Profile
@@ -21,6 +22,9 @@
 
             CreateMap<PropertyTypeRest, PropertyTypeDto>();
             CreateMap<PropertyTypeDto, PropertyTypeRest>();
+
+            CreateMap<PropertyTypeDto, PropertyTypeWithProperties>();
+            CreateMap<PropertyTypeWithProperties, PropertyTypeDto>();
         }
     }
 }

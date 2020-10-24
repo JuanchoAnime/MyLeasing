@@ -23,7 +23,7 @@
 
         public async Task<PropertyDto> AddProperty(PropertyDto property, int idOwner, int idPropertyType)
         {
-            property.Owner = await this.FindById(idOwner);
+            property.Owner = await Entity.FindAsync(idOwner);
             property.PropertyType = await this._typeRepository.FindById(idPropertyType);
             return await _propertyRepository.Save(property);
         }

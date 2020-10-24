@@ -7,10 +7,15 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public class PropertyTypeRepository: GenericRepository<PropertyTypeDto>, IPropertyTypeRepository
+    public class PropertyTypeRepository : GenericRepository<PropertyTypeDto>, IPropertyTypeRepository
     {
-        public PropertyTypeRepository(DataContext dataContext): base(dataContext)
+        public PropertyTypeRepository(DataContext dataContext) : base(dataContext)
         {
+        }
+
+        public async Task<List<PropertyTypeDto>> FindAllWithProperties()
+        {
+            return await Entity.Include(pt => pt.Properties).ToListAsync();
         }
     }
 }

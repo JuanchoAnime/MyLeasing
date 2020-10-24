@@ -8,7 +8,7 @@
 
     public class GenericApplication<Rest, Dto> where Dto : BaseEntity
     {
-        protected IRepository<Dto> Repository { get; }
+        private IRepository<Dto> Repository { get; }
 
         protected IMapper Mapper { get; }
 
