@@ -29,6 +29,8 @@
             services.AddDbContext<DataContext>(cfg => {
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConection"));
             });
+
+            services.AddTransient<SeedDatabase>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
