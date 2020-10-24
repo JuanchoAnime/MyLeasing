@@ -3,14 +3,16 @@
     using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using MyLeasing.Api.Core.Application;
     using MyLeasing.Api.Infrastructure.Data;
-    using MyLeasing.Api.Infrastructure.Mapper;
+    using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Api.Infrastructure.Repository;
+    using MyLeasing.Api.Infrastructure.Repository.Helper;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using System;
 
@@ -23,12 +25,20 @@
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(cfg => {
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConection"));
             });
+
+            services.AddIdentity<UserDto, IdentityRole>(cfg => {
+                cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireDigit = false;
+                cfg.Password.RequiredUniqueChars = 0;
+                cfg.Password.RequireLowercase = false;
+                cfg.Password.RequireNonAlphanumeric = false;
+                cfg.Password.RequireUppercase = false;
+            }).AddEntityFrameworkStores<DataContext>();
 
             services.AddTransient<SeedDatabase>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -36,20 +46,19 @@
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             //Repository
-            services.AddTransient<IOwnerRepository, OwnerRepository>();
-            services.AddTransient<IPropertyTypeRepository, PropertyTypeRepository>();
+            services.AddScoped<IPropertyTypeRepository, PropertyTypeRepository>();
+            services.AddScoped<IUserHelper, UserHelper>();
 
             //Application
-            services.AddTransient<OwnerApplication>();
-            services.AddTransient<PropertyTypeApplication>();
+            services.AddScoped<PropertyTypeApplication>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
             else { app.UseHsts(); }
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseMvc();
         }
     }

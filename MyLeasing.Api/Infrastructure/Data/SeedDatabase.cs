@@ -2,25 +2,53 @@
 {
     using Microsoft.EntityFrameworkCore.Internal;
     using MyLeasing.Api.Infrastructure.Data.Entities;
+    using MyLeasing.Api.Infrastructure.Repository.Interface;
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
 
     public class SeedDatabase
     {
         private readonly DataContext _dataContext;
+        private readonly IUserHelper _userHelper;
 
-        public SeedDatabase(DataContext dataContext)
+        public SeedDatabase(DataContext dataContext, IUserHelper userHelper)
         {
             this._dataContext = dataContext;
+            this._userHelper = userHelper;
         }
 
         public async Task SeedAsync()
         {
             await _dataContext.Database.EnsureCreatedAsync();
+            await CheckRoles();
             await CheckPropertyTypesAsync();
-            await CheckOwnerAsync();
-            await CheckLesseesAsync();
+            var manager = await CheckUserAsync("1010", "Juan", "Sierra", "judas3991@gmail.com", "3526789358", "Calle luna", "Manager");
+            var owner = await CheckUserAsync("1010", "Juan", "Sierra", "js8332961@gmail.com", "3526789358", "Calle luna", "Owner");
+            var lessee = await CheckUserAsync("1010", "Juan", "Sierra", "eliotandelon@gmail.com", "3526789358", "Calle luna", "Lessee");
+            await CheckOwnerAsync(owner);
+            await CheckLesseesAsync(lessee);
+            await CheckManageAsync(manager);
             await CheckPropertiesAsync();
+            await CheckContractsAsync();
+        }
+
+        private async Task CheckRoles()
+        {
+            await _userHelper.CheckRoleAsync("Manager");
+            await _userHelper.CheckRoleAsync("Owner");
+            await _userHelper.CheckRoleAsync("Lessee");
+        }
+
+        private async Task CheckPropertyTypesAsync()
+        {
+            if (!_dataContext.PropertyTypes.Any())
+            {
+                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Apartamento" });
+                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Casa" });
+                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Negocio" });
+                await _dataContext.SaveChangesAsync();
+            }
         }
 
         private async Task CheckPropertiesAsync()
@@ -34,9 +62,8 @@
                 await _dataContext.SaveChangesAsync();
             }
         }
-
         private void AddProperty(string addres, string neighborhood, OwnerDto owner,
-            PropertyTypeDto propertype, decimal price, int rooms, int square, int stratum)
+           PropertyTypeDto propertype, decimal price, int rooms, int square, int stratum)
         {
             _dataContext.Properties.Add(new PropertyDto
             {
@@ -54,63 +81,73 @@
             });
         }
 
-        private async Task CheckLesseesAsync()
+        private async Task<UserDto> CheckUserAsync(string document, string name, string lastName,
+            string email, string cellPhone, string address, string role)
+        {
+            var user = await _userHelper.GetUserByEmailAsync(email);
+            if (user == null)
+            {
+                user = new UserDto
+                {
+                    Document = document,
+                    FirstName = name,
+                    LastName = lastName,
+                    Email = email,
+                    PhoneNumber = cellPhone,
+                    Address = address,
+                    UserName = email
+                };
+                await _userHelper.AddUserAsync(user, "12345678");
+                await _userHelper.AddUserToRoleAsync(user, role);
+            }
+            return user;
+        }
+
+        private async Task CheckManageAsync(UserDto manager)
+        {
+            if (!_dataContext.Managers.Any())
+            {
+                _dataContext.Managers.Add(new ManagerDto { User = manager });
+                await _dataContext.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckLesseesAsync(UserDto lessee)
         {
             if (!_dataContext.Lessees.Any())
             {
-                AddLessee("456789876", "Ramon", "Gamboa", "65434567", "3167892876", "Calle luna");
-                AddLessee("987656745", "Julian", "Martinez", "64567890", "3145678909", "Calle sol");
-                AddLessee("456789876", "Carmenza", "Ruis", "67876543", "3123456789", "Calle #56");
+                _dataContext.Lessees.Add(new LesseeDto { User = lessee });
                 await _dataContext.SaveChangesAsync();
             }
         }
 
-        private void AddLessee(string document, string name, string lastName, 
-            string fixedPhone, string cellPhone, string address)
-        {
-            _dataContext.Lessees.Add(new LesseeDto
-            {
-                Address = address,
-                CellPhone = cellPhone,
-                Document = document,
-                FirstName = name,
-                LastName = lastName,
-                FixedPhone = fixedPhone
-            });
-        }
-
-        private async Task CheckOwnerAsync()
+        private async Task CheckOwnerAsync(UserDto owner)
         {
             if (!_dataContext.Owners.Any())
             {
-                AddOwner("45678678", "Juan", "Zuluaga", "45676543", "3105678987", "Calle luna");
-                AddOwner("56789098", "Jose", "Cardona", "45678876", "3198765498", "Calle sol");
-                AddOwner("98764567", "Maria", "lópez", "78987659", "3134567872", "Calle #56");
+                _dataContext.Owners.Add(new OwnerDto { User = owner });
                 await _dataContext.SaveChangesAsync();
             }
         }
 
-        private void AddOwner(string document, string name, string lastName, 
-            string fixedPhone, string cellPhone, string address)
+        private async Task CheckContractsAsync() 
         {
-            _dataContext.Owners.Add(new OwnerDto
+            if (!_dataContext.Contracts.Any()) 
             {
-                Address = address,
-                CellPhone = cellPhone,
-                Document = document,
-                FirstName = name,
-                LastName = lastName,
-                FixedPhone = fixedPhone
-            });
-        }
-
-        private async Task CheckPropertyTypesAsync()
-        {
-            if (!_dataContext.PropertyTypes.Any())
-            {
-                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Apartamento" });
-                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Casa" });
-                _dataContext.PropertyTypes.Add(new PropertyTypeDto { Name = "Negocio" });
+                var owner = _dataContext.Owners.FirstOrDefault();
+                var lessee = _dataContext.Lessees.FirstOrDefault();
+                var property = _dataContext.Properties.FirstOrDefault();
+                _dataContext.Contracts.Add(new ContractDto
+                {
+                    StartDate = DateTime.Now,
+                    EndDate = DateTime.Today.AddYears(1),
+                    IsActive = true,
+                    Lessee = lessee,
+                    Owner = owner,
+                    Price = property.Price,
+                    Property = property,
+                    Remarks = "Lorem ipsum dolor sit amet, consectetur adipiscing"
+                });
                 await _dataContext.SaveChangesAsync();
             }
         }

@@ -1,9 +1,10 @@
 ﻿namespace MyLeasing.Api.Infrastructure.Data
 {
+    using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
     using MyLeasing.Api.Infrastructure.Data.Entities;
 
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<UserDto>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
@@ -20,5 +21,7 @@
         public DbSet<PropertyDto> Properties { get; set; }
 
         public DbSet<PropertyImageDto> PropertyImages { get; set; }
+
+        public DbSet<ManagerDto> Managers { get; set; }
     }
 }

@@ -1,19 +1,13 @@
 ﻿namespace MyLeasing.Common.Rest
 {
+    using System.Collections.Generic;
+
     public class OwnerRest: BaseRest
     {
-        public string Document { get; set; }
+        public UserRest User { get; set; }
 
-        public string FirstName { get; set; }
+        public ICollection<PropertyRest> Properties { get; set; }
 
-        public string LastName { get; set; }
-
-        public string FixedPhone { get; set; }
-
-        public string CellPhone { get; set; }
-
-        public string Address { get; set; }
-
-        public string FullName => $"{FirstName} {LastName}";
+        public ICollection<ContractRest> Contracts { get; set; }
     }
 }
