@@ -1,7 +1,7 @@
-﻿namespace MyLeasing.Api.Data
+﻿namespace MyLeasing.Api.Infrastructure.Data
 {
     using Microsoft.EntityFrameworkCore;
-    using MyLeasing.Api.Data.Entities;
+    using MyLeasing.Api.Infrastructure.Data.Entities;
 
     public class DataContext : DbContext
     {

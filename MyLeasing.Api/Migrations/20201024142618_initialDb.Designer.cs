@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MyLeasing.Api.Data;
+using MyLeasing.Api.Infrastructure.Data;
 
 namespace MyLeasing.Api.Migrations
 {
