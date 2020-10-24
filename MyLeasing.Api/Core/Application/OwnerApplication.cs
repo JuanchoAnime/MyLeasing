@@ -44,11 +44,5 @@
             }
             return null;
         }
-
-        public async Task<PropertyRest> AddProperty(PropertyRest property)
-        {
-            var data = await this._ownerRepository.AddProperty(Mapper.Map<PropertyDto>(property), property.IdOwner, property.PropertyType.Id);
-            return Mapper.Map<PropertyRest>(data);
-        }
     }
 }

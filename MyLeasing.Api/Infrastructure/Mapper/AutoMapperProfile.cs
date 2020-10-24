@@ -17,6 +17,9 @@
             CreateMap<PropertyRest, PropertyDto>();
             CreateMap<PropertyDto, PropertyRest>();
 
+            CreateMap<PropertyWithOwner, PropertyDto>();
+            CreateMap<PropertyDto, PropertyWithOwner>();
+
             CreateMap<OwnerRest, OwnerDto>();
             CreateMap<OwnerDto, OwnerRest>();
 

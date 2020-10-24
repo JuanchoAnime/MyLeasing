@@ -16,13 +16,5 @@
         {
             this._ownerApplication = ownerApplication;
         }
-
-        [HttpPost("{owner}/AddProperty")]
-        public async Task<IActionResult> AddProperty([FromRoute(Name = "owner")] int idOwner, [FromBody] PropertyRest property)
-        {
-            property.IdOwner = idOwner;
-            var data = await this._ownerApplication.AddProperty(property);
-            return Ok(data);
-        }
     }
 }

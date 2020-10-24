@@ -11,21 +11,8 @@
 
     public class OwnerRepository: GenericRepository<OwnerDto>, IOwnerRepository
     {
-        private readonly IPropertyTypeRepository _typeRepository;
-        private readonly IPropertyRepository _propertyRepository;
-
-        public OwnerRepository(DataContext dataContext, IPropertyTypeRepository typeRepository, IPropertyRepository propertyRepository)
-            : base(dataContext)
+        public OwnerRepository(DataContext dataContext) : base(dataContext)
         {
-            this._typeRepository = typeRepository;
-            this._propertyRepository = propertyRepository;
-        }
-
-        public async Task<PropertyDto> AddProperty(PropertyDto property, int idOwner, int idPropertyType)
-        {
-            property.Owner = await Entity.FindAsync(idOwner);
-            property.PropertyType = await this._typeRepository.FindById(idPropertyType);
-            return await _propertyRepository.Save(property);
         }
 
         public async override Task<List<OwnerDto>> FindAll()
@@ -33,6 +20,14 @@
             var owners = await Entity.Include(o => o.User)
                 .ToListAsync();
             return owners;
+        }
+
+        public async Task<OwnerDto> FindAsync(int id)
+        {
+            var dto = await Entity.FindAsync(id);
+            if (dto == null)
+                throw new Exception("Id no encontrado");
+            return dto;
         }
 
         public async override Task<OwnerDto> FindById(int id)
