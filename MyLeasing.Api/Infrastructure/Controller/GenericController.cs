@@ -18,21 +18,21 @@
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Rest>> Get()
+        public virtual async Task<IEnumerable<Rest>> Get()
         {
             var list = await Application.GetEntities();
             return list;
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById([FromRoute] int id)
+        public virtual async Task<IActionResult> GetById([FromRoute] int id)
         {
             var entities = await Application.GetEntity(id);
             return Ok(entities);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] int id, [FromBody] Rest entity)
+        public virtual async Task<IActionResult> Put([FromRoute] int id, [FromBody] Rest entity)
         {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
@@ -44,7 +44,7 @@
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Rest entity)
+        public virtual async Task<IActionResult> Post([FromBody] Rest entity)
         {
             if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
@@ -55,7 +55,7 @@
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete([FromRoute] int id)
+        public virtual async Task<IActionResult> Delete([FromRoute] int id)
         {
             await Application.Delete(id);
             return Ok();

@@ -1,6 +1,7 @@
 ﻿namespace MyLeasing.Api.Infrastructure.Data
 {
     using Microsoft.EntityFrameworkCore.Internal;
+    using MyLeasing.Api.Core.Helper;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using System;
@@ -23,9 +24,9 @@
             await _dataContext.Database.EnsureCreatedAsync();
             await CheckRoles();
             await CheckPropertyTypesAsync();
-            var manager = await CheckUserAsync("1010", "Juan", "Sierra", "judas3991@gmail.com", "3526789358", "Calle luna", "Manager");
-            var owner = await CheckUserAsync("1010", "Juan", "Sierra", "js8332961@gmail.com", "3526789358", "Calle luna", "Owner");
-            var lessee = await CheckUserAsync("1010", "Juan", "Sierra", "eliotandelon@gmail.com", "3526789358", "Calle luna", "Lessee");
+            var manager = await CheckUserAsync("1010", "Juan", "Sierra", "judas3991@gmail.com", "3526789358", "Calle luna", Constans.ROLE_MANAGER);
+            var owner = await CheckUserAsync("1010", "Juan", "Sierra", "js8332961@gmail.com", "3526789358", "Calle luna", Constans.ROLE_OWNER);
+            var lessee = await CheckUserAsync("1010", "Juan", "Sierra", "eliotandelon@gmail.com", "3526789358", "Calle luna", Constans.ROLE_LESSEE);
             await CheckOwnerAsync(owner);
             await CheckLesseesAsync(lessee);
             await CheckManageAsync(manager);
@@ -35,9 +36,9 @@
 
         private async Task CheckRoles()
         {
-            await _userHelper.CheckRoleAsync("Manager");
-            await _userHelper.CheckRoleAsync("Owner");
-            await _userHelper.CheckRoleAsync("Lessee");
+            await _userHelper.CheckRoleAsync(Constans.ROLE_MANAGER);
+            await _userHelper.CheckRoleAsync(Constans.ROLE_OWNER);
+            await _userHelper.CheckRoleAsync(Constans.ROLE_LESSEE);
         }
 
         private async Task CheckPropertyTypesAsync()

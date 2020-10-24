@@ -47,10 +47,13 @@
 
             //Repository
             services.AddScoped<IPropertyTypeRepository, PropertyTypeRepository>();
+            services.AddScoped<IPropertyRepository, PropertyRepository>();
+            services.AddScoped<IOwnerRepository, OwnerRepository>();
             services.AddScoped<IUserHelper, UserHelper>();
 
             //Application
             services.AddScoped<PropertyTypeApplication>();
+            services.AddScoped<OwnerApplication>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

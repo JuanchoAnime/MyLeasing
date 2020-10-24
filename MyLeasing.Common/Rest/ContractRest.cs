@@ -17,5 +17,11 @@
         public DateTime StartDateLocal => StartDate.ToLocalTime();
 
         public DateTime EndDateLocal => EndDate.ToLocalTime();
+
+        public PropertyRest Property { get; set; }
+
+        public OwnerRest Owner { get; set; }
+
+        public LesseeRest Lessee { get; set; }
     }
 }

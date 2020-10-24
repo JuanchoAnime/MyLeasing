@@ -1,13 +1,12 @@
 ﻿namespace MyLeasing.Api.Core.Application
 {
     using AutoMapper;
-    using MyLeasing.Api.Core.Application.Interface;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    public class GenericApplication<Rest, Dto> : IGenericApplication<Rest> where Dto : BaseEntity
+    public class GenericApplication<Rest, Dto> where Dto : BaseEntity
     {
         protected IRepository<Dto> Repository { get; }
 
