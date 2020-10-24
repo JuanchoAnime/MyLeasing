@@ -1,9 +1,7 @@
 ﻿namespace MyLeasing.Common.Rest
 {
-    public class OwnerRest
+    public class OwnerRest: BaseRest
     {
-        public int Id { get; set; }
-
         public string Document { get; set; }
 
         public string FirstName { get; set; }

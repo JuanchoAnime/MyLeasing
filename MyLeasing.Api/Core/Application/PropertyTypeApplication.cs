@@ -6,10 +6,12 @@
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using MyLeasing.Common.Rest;
 
-    public class OwnerApplication : GenericApplication<OwnerRest, OwnerDto>, IGenericApplication<OwnerRest>
+    public class PropertyTypeApplication : GenericApplication<PropertyTypeRest, PropertyTypeDto>, IGenericApplication<PropertyTypeRest>
     {
-        public OwnerApplication(IOwnerRepository ownerRepository, IMapper mapper) : base(ownerRepository, mapper)
+        public PropertyTypeApplication(IPropertyTypeRepository propertyTypeRepository, IMapper mapper)
+            : base(propertyTypeRepository, mapper)
         {
+
         }
     }
 }

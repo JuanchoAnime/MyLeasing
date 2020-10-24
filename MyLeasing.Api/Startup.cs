@@ -1,5 +1,6 @@
 ﻿namespace MyLeasing.Api
 {
+    using AutoMapper;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@
     using MyLeasing.Api.Infrastructure.Mapper;
     using MyLeasing.Api.Infrastructure.Repository;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
+    using System;
 
     public class Startup
     {
@@ -29,14 +31,15 @@
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             //Repository
             services.AddTransient<IOwnerRepository, OwnerRepository>();
-
-            //Mapper
-            services.AddTransient<OwnerMapper>();
+            services.AddTransient<IPropertyTypeRepository, PropertyTypeRepository>();
 
             //Application
             services.AddTransient<OwnerApplication>();
+            services.AddTransient<PropertyTypeApplication>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

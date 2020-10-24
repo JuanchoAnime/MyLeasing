@@ -10,5 +10,7 @@
         }
 
         public DbSet<OwnerDto> Owners { get; set; }
+
+        public DbSet<PropertyTypeDto> PropertyTypes { get; set; }
     }
 }

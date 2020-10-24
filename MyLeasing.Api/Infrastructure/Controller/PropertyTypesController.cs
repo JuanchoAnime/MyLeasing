@@ -7,9 +7,9 @@
 
     [Route("api/[controller]")]
     [ApiController]
-    public class OwnersController : GenericController<OwnerRest, OwnerDto>
+    public class PropertyTypesController : GenericController<PropertyTypeRest, PropertyTypeDto>
     {
-        public OwnersController(OwnerApplication ownerApplication) : base(ownerApplication)
+        public PropertyTypesController(PropertyTypeApplication application) : base(application)
         {
         }
     }
