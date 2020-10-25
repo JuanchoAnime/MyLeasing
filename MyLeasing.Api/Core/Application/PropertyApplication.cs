@@ -28,8 +28,13 @@
         {
             entity.Contracts = new List<ContractRest>();
             entity.PropertiesImages = new List<PropertyImageRest>();
-            var data = await this.propertyRepository.AddProperty(Mapper.Map<PropertyDto>(entity), entity.IdOwner, entity.PropertyType.Id);
+            var data = await this.propertyRepository.AddProperty(Mapper.Map<PropertyDto>(entity), entity.IdOwner);
             return Mapper.Map<PropertyRest>(data);
+        }
+
+        public override Task<PropertyRest> GetEntity(int id)
+        {
+            return base.GetEntity(id);
         }
     }
 }

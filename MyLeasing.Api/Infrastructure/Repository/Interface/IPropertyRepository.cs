@@ -5,6 +5,6 @@
 
     public interface IPropertyRepository : IRepository<PropertyDto>
     {
-        Task<PropertyDto> AddProperty(PropertyDto property, int idOwner, int idPropertyType);
+        Task<PropertyDto> AddProperty(PropertyDto property, int idOwner);
     }
 }
