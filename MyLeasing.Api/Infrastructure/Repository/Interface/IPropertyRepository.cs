@@ -6,5 +6,7 @@
     public interface IPropertyRepository : IRepository<PropertyDto>
     {
         Task<PropertyDto> AddProperty(PropertyDto property, int idOwner);
+
+        Task<PropertyDto> FindAsync(int id);
     }
 }

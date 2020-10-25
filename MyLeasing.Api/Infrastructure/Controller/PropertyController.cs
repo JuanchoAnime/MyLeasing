@@ -1,9 +1,11 @@
 ﻿namespace MyLeasing.Api.Infrastructure.Controller
 {
+    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using MyLeasing.Api.Core.Application;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Common.Rest;
+    using System.IO;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -27,6 +29,13 @@
         public override async Task<IActionResult> GetById([FromRoute] int id)
         {
             var data = await this._propertyApplication.GetEntityInfoById(id);
+            return Ok(data);
+        }
+
+        [HttpPost("property/{idProperty}/AddImage")]
+        public async Task<IActionResult> AddImage(int idProperty, IFormFile image)
+        {
+            var data = await this._propertyApplication.SaveImage(idProperty, image);
             return Ok(data);
         }
     }

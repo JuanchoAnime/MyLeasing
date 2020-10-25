@@ -70,5 +70,17 @@
             dto.Owner.Contracts = null;
             return dto;
         }
+
+        public async Task<PropertyDto> FindAsync(int id)
+        {
+            var dto = await Entity.Include(p => p.Owner).ThenInclude(o => o.User)
+                                  .Include(p => p.PropertiesImages)
+                                  .Include(p => p.PropertyType)
+                                  .Include(p => p.Contracts).ThenInclude(c => c.Lessee).ThenInclude(l => l.User)
+                                  .FirstOrDefaultAsync(p => p.Id.Equals(id));
+            if (dto == null)
+                throw new System.Exception("Id no encontrado");
+            return dto;
+        }
     }
 }

@@ -50,7 +50,9 @@
             services.AddScoped<IPropertyRepository, PropertyRepository>();
             services.AddScoped<IOwnerRepository, OwnerRepository>();
             services.AddScoped<IUserHelper, UserHelper>();
-
+            services.AddScoped<IImageHelper, ImageHelper>();
+            services.AddScoped<IPropertyImageRepository, PropertyImageRepository>();
+            
             //Application
             services.AddScoped<PropertyTypeApplication>();
             services.AddScoped<OwnerApplication>();
