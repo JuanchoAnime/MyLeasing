@@ -4,6 +4,7 @@
     using MyLeasing.Api.Core.Application;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Common.Rest;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]
@@ -18,11 +19,16 @@
             this._propertyApplication = propertyApplication;
         }
 
-        [HttpGet("WithOwner")]
-        public async Task<IActionResult> GetPropertiesWithOwner() 
+        public override async Task<IActionResult> Get()
         {
             var list = await _propertyApplication.GetPropertiesWithOwner();
             return Ok(list);
+        }
+
+        public override async Task<IActionResult> GetById([FromRoute] int id)
+        {
+            var data = await this._propertyApplication.GetEntityInfoById(id);
+            return Ok(data);
         }
     }
 }

@@ -32,9 +32,10 @@
             return Mapper.Map<PropertyRest>(data);
         }
 
-        public override Task<PropertyRest> GetEntity(int id)
+        public async Task<PropertyWithOwner> GetEntityInfoById(int id)
         {
-            return base.GetEntity(id);
+            var dto = await propertyRepository.FindById(id);
+            return Mapper.Map<PropertyWithOwner>(dto);
         }
     }
 }

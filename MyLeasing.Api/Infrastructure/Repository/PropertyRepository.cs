@@ -24,6 +24,7 @@
         {
             var list = await Entity
                     .Include(p => p.PropertiesImages)
+                    .Include(p => p.PropertyType)
                     .Include(p => p.Owner)
                         .ThenInclude(o => o.User).ToListAsync();
             return list;
@@ -49,6 +50,25 @@
             await base.Update(entity);
             entity.Contracts.ToList().ForEach(c => c.Property = null);
             return entity;
+        }
+
+        public async override Task<PropertyDto> FindById(int id)
+        {
+            var dto = await Entity.Include(p => p.Owner).ThenInclude(o => o.User)
+                                  .Include(p => p.PropertiesImages)
+                                  .Include(p => p.PropertyType)
+                                  .Include(p => p.Contracts).ThenInclude(c => c.Lessee).ThenInclude(l => l.User)
+                                  .FirstOrDefaultAsync(p => p.Id.Equals(id));
+            if (dto == null)
+                throw new System.Exception("Id no encontrado");
+            dto.Contracts.ToList().ForEach(c => { 
+                c.Property = null; 
+                c.Owner = null; 
+                c.Lessee.Contracts = new List<ContractDto>(); 
+            });
+            dto.Owner.Properties = null;
+            dto.Owner.Contracts = null;
+            return dto;
         }
     }
 }

@@ -18,10 +18,10 @@
         }
 
         [HttpGet]
-        public virtual async Task<IEnumerable<Rest>> Get()
+        public virtual async Task<IActionResult> Get()
         {
             var list = await Application.GetEntities();
-            return list;
+            return Ok(list);
         }
 
         [HttpGet("{id}")]
