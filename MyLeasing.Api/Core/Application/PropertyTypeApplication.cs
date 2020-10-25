@@ -7,6 +7,7 @@
     using MyLeasing.Common.Rest;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Principal;
     using System.Threading.Tasks;
 
     public class PropertyTypeApplication : GenericApplication<PropertyTypeRest, PropertyTypeDto>
@@ -22,10 +23,17 @@
         public async Task<List<PropertyTypeWithProperties>> FindAllWithProperties()
         {
             var list = await _propertyTypeRepository.FindAllWithProperties();
-            list.ForEach(pt =>{
-                pt.Properties.ToList().ForEach( property => { property.PropertyType = null; });
+            list.ForEach(pt => {
+                pt.Properties.ToList().ForEach(property => { property.PropertyType = null; });
             });
             return Mapper.Map<List<PropertyTypeWithProperties>>(list);
+        }
+
+        public async Task<PropertyTypeWithProperties> FindWithProperties(int id)
+        {
+            var pt = await _propertyTypeRepository.FindWithProperties(id);
+            pt.Properties.ToList().ForEach(property => { property.PropertyType = null; });
+            return Mapper.Map<PropertyTypeWithProperties>(pt);
         }
     }
 }

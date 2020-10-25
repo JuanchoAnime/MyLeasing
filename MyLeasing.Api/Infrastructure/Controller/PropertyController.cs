@@ -4,7 +4,6 @@
     using MyLeasing.Api.Core.Application;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Common.Rest;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     [Route("api/[controller]")]

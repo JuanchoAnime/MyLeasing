@@ -24,5 +24,11 @@
             var list = await _application.FindAllWithProperties();
             return Ok(list);
         }
+
+        public override async Task<IActionResult> GetById([FromRoute] int id)
+        {
+            var data = await this._application.FindWithProperties(id);
+            return Ok(data);
+        }
     }
 }

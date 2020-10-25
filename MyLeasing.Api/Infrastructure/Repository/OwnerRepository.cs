@@ -35,10 +35,16 @@
             var dto = await  Entity.Include(o => o.User)
                 .Include(o => o.Properties).ThenInclude(p => p.PropertiesImages)
                 .Include(o => o.Properties).ThenInclude(p => p.PropertyType)
+                .Include(o => o.Contracts).ThenInclude(c => c.Lessee).ThenInclude(l => l.User)
                 .Where(o => o.Id.Equals(id))
                 .FirstOrDefaultAsync();
             if (dto == null)
                 throw new Exception("Id no encontrado");
+            dto.Contracts.ToList().ForEach(c => {
+                c.Owner = null;
+                c.Lessee.Contracts = new List<ContractDto>();
+            });
+            dto.Properties.ToList().ForEach(p => p.Contracts = new List<ContractDto>());
             return dto;
         }
     }

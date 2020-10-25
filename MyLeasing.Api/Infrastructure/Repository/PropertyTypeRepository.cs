@@ -17,5 +17,13 @@
         {
             return await Entity.Include(pt => pt.Properties).ToListAsync();
         }
+
+        public async Task<PropertyTypeDto> FindWithProperties(int id)
+        {
+            var dto = await Entity.Include(tp => tp.Properties).FirstOrDefaultAsync(tp => tp.Id.Equals(id));
+            if (dto == null)
+                throw new System.Exception("Id no encontrado");
+            return dto;
+        }
     }
 }

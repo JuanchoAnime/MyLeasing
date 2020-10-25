@@ -6,6 +6,8 @@
 
     public interface IPropertyTypeRepository: IRepository<PropertyTypeDto>
     {
-        Task<List<PropertyTypeDto>> FindAllWithProperties();
+        Task<List<PropertyTypeDto>> FindAllWithProperties();    
+
+        Task<PropertyTypeDto> FindWithProperties(int id);
     }
 }
