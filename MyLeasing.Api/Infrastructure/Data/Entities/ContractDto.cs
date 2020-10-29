@@ -21,10 +21,10 @@
 
         public bool IsActive { get; set; }
 
+        public LesseeDto Lessee { get; set; }
+
         public PropertyDto Property { get; set; }
 
         public OwnerDto Owner { get; set; }
-
-        public LesseeDto Lessee { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 {
     using Microsoft.AspNetCore.Http;
     using MyLeasing.Api.Infrastructure.Data.Entities;
+    using MyLeasing.Common.Rest;
     using System.Threading.Tasks;
 
     public interface IPropertyImageRepository

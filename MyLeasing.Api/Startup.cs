@@ -52,7 +52,9 @@
             services.AddScoped<IUserHelper, UserHelper>();
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IPropertyImageRepository, PropertyImageRepository>();
-            
+            services.AddScoped<IContractRepository, ContractRepository>();
+            services.AddScoped<ILesseeRepository, LesseeRepository>();
+
             //Application
             services.AddScoped<PropertyTypeApplication>();
             services.AddScoped<OwnerApplication>();
