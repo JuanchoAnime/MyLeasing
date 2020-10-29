@@ -1,6 +1,7 @@
 ﻿namespace MyLeasing.Api
 {
     using AutoMapper;
+    using FluentValidation.AspNetCore;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -14,6 +15,7 @@
     using MyLeasing.Api.Infrastructure.Repository;
     using MyLeasing.Api.Infrastructure.Repository.Helper;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
+    using MyLeasing.Api.Infrastructure.Filter;
     using System;
 
     public class Startup
@@ -41,7 +43,11 @@
             }).AddEntityFrameworkStores<DataContext>();
 
             services.AddTransient<SeedDatabase>();
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc(options => {
+                options.Filters.Add<ValidationFilter>();
+            }).AddFluentValidation(options => {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

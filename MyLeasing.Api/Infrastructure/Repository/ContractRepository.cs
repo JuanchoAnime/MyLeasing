@@ -29,7 +29,7 @@
 
             contract.Owner = owner;
             contract.Lessee = lessee;
-            propertyDto.Contracts = propertyDto.Contracts == null ? new List<ContractDto>() : propertyDto.Contracts;
+            propertyDto.Contracts = propertyDto.Contracts ?? new List<ContractDto>();
             propertyDto.Contracts.Add(contract);
             dataContext.Properties.Update(propertyDto);
             dataContext.Entry(propertyDto).State = EntityState.Modified;
