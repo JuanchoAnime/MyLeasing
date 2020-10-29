@@ -6,7 +6,6 @@
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using MyLeasing.Common.AdvancedRest;
     using MyLeasing.Common.Rest;
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
