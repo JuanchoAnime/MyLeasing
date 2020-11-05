@@ -4,6 +4,7 @@
     using MyLeasing.Api.Infrastructure.Data;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
+    using MyLeasing.Common.Rest;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -46,6 +47,22 @@
             });
             dto.Properties.ToList().ForEach(p => p.Contracts = new List<ContractDto>());
             return dto;
+        }
+
+        public async Task<OwnerDto> GetOwnerByEmail(EmailRequest emailRequest)
+        {
+            var ownerDto = await Entity.Include(owner => owner.User)
+                                        .Include(owner => owner.Properties)
+                                            .ThenInclude(p => p.PropertiesImages)
+                                        .Include(owner => owner.Properties)
+                                            .ThenInclude(p => p.PropertyType)
+                                        .Include(owner => owner.Properties)
+                                            .ThenInclude(p => p.Contracts)
+                                                .ThenInclude(c => c.Lessee)
+                                                    .ThenInclude(l => l.User)
+                                        .Include(owner => owner.Contracts)
+                                        .FirstOrDefaultAsync(owner => owner.User.Email.ToLower().Equals(emailRequest.Email.ToLower()));
+            return ownerDto;
         }
     }
 }

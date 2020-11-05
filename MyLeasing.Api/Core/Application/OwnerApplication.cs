@@ -4,6 +4,7 @@
     using MyLeasing.Api.Core.Helper;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Api.Infrastructure.Repository.Interface;
+    using MyLeasing.Common.Response;
     using MyLeasing.Common.Rest;
     using System.Collections.Generic;
     using System.Threading.Tasks;
@@ -43,6 +44,12 @@
                 return Mapper.Map<UserRest>(userDto);
             }
             return null;
+        }
+
+        public async Task<OwnerResponse> GetOwnerByEmail(EmailRequest emailRequest) 
+        {
+            var owner = await _ownerRepository.GetOwnerByEmail(emailRequest);
+            return Mapper.Map<OwnerResponse>(owner);
         }
     }
 }

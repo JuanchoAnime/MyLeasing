@@ -16,5 +16,14 @@
         {
             this._ownerApplication = ownerApplication;
         }
+
+        [HttpPost("GetOwnerByEmail")]
+        public async Task<IActionResult> GetOwnerByEmail(EmailRequest emailRequest)
+        {
+            var owner = await _ownerApplication.GetOwnerByEmail(emailRequest);
+            if (owner == null)
+                NotFound();
+            return Ok(owner);
+        }
     }
 }
