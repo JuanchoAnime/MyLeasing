@@ -7,20 +7,20 @@
              Title="{Binding Title}">
 
     <StackLayout Padding="10">
-        <Label Text="Email" />
+        <Label x:Name="lblEmail" />
         <Entry Keyboard="Email"
-               Placeholder="Enter Your Email"
+               x:Name="txtEmail"
                Text="{Binding Email}" />
-        
-        <Label Text="Password" />
+
+        <Label  x:Name="lblPassword" />
         <Entry IsPassword="True"
-               Placeholder="Enter Your Email"
+               x:Name="txtPassword"
                Text="{Binding Password}"/>
 
         <ActivityIndicator IsRunning="{Binding IsRunning}"
                            VerticalOptions="CenterAndExpand"/>
 
-        <Button Text="Login"
+        <Button x:Name="btnLogin"
                 Command="{Binding LoginCommand}"
                 IsEnabled="{Binding IsEnabled}" />
     </StackLayout>

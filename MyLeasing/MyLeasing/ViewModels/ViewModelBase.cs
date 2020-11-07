@@ -1,5 +1,6 @@
 ﻿namespace MyLeasing.ViewModels
 {
+    using MyLeasing.Helpers;
     using Prism.Mvvm;
     using Prism.Navigation;
     using System.Threading.Tasks;
@@ -40,8 +41,11 @@
 
         }
 
-        protected async Task ShowMessage(string msg, string title = "Error", string aceptar = "Accept")
+        protected async Task ShowMessage(string msg, string title = null, string aceptar = null)
         {
+            title = string.IsNullOrEmpty(title) ? Languages.Error : title;
+            aceptar = string.IsNullOrEmpty(aceptar) ? Languages.Accept : aceptar;
+
             await Prism.PrismApplicationBase.Current.MainPage.DisplayAlert(title: title, message: msg, cancel: aceptar);
         }
     }
