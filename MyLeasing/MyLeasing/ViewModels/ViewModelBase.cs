@@ -1,12 +1,9 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLeasing.ViewModels
+﻿namespace MyLeasing.ViewModels
 {
+    using Prism.Mvvm;
+    using Prism.Navigation;
+    using System.Threading.Tasks;
+
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
@@ -41,6 +38,11 @@ namespace MyLeasing.ViewModels
         public virtual void Destroy()
         {
 
+        }
+
+        protected async Task ShowMessage(string msg, string title = "Error", string aceptar = "Accept")
+        {
+            await Prism.PrismApplicationBase.Current.MainPage.DisplayAlert(title: title, message: msg, cancel: aceptar);
         }
     }
 }

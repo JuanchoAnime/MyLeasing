@@ -1,13 +1,13 @@
-using Prism;
-using Prism.Ioc;
-using MyLeasing.ViewModels;
-using MyLeasing.Views;
-using Xamarin.Essentials.Interfaces;
-using Xamarin.Essentials.Implementation;
-using Xamarin.Forms;
-
 namespace MyLeasing
 {
+    using Prism;
+    using Prism.Ioc;
+    using MyLeasing.ViewModels;
+    using MyLeasing.Views;
+    using Xamarin.Essentials.Interfaces;
+    using Xamarin.Essentials.Implementation;
+    using Xamarin.Forms;
+
     public partial class App
     {
         public App(IPlatformInitializer initializer)
@@ -19,7 +19,7 @@ namespace MyLeasing
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -27,7 +27,7 @@ namespace MyLeasing
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
         }
     }
 }
