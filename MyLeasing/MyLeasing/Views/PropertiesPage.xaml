@@ -62,14 +62,14 @@
                             <Grid RowDefinitions="Auto, *">
                                 <ff:CachedImage
                                     Source="{Binding FirstImage}"
-                                    ErrorPlaceholder="apt2.jpeg"
+                                    ErrorPlaceholder="no_property_image"
                                     HeightRequest="160"
                                     CacheDuration="50"
                                     RetryCount="3"
                                     RetryDelay="600"
                                     DownsampleToViewSize="True"
                                     Aspect="AspectFill"
-                                    LoadingPlaceholder="apt2.jpeg"/>
+                                    LoadingPlaceholder="no_property_image"/>
                                 <Image Source="bookmark" HorizontalOptions="End"
                                        Margin="12" HeightRequest="16"
                                        VerticalOptions="Start" />

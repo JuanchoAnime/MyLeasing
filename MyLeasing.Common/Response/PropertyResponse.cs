@@ -23,7 +23,7 @@
 
         public bool IsAvailable { get; set; }
 
-        public string Remarks { get; set; }
+        public string Remarks { get; set; } 
 
         public string PropertyType { get; set; }
 
@@ -32,6 +32,6 @@
         public ICollection<ContractResponse> Contracts { get; set; }
 
         public string FirstImage => PropertiesImages == null || PropertiesImages.Count == 0
-                                    ? "apt2.jpeg" : PropertiesImages.FirstOrDefault().ImageUrl;
+                                    ? "no_property_image" : PropertiesImages.FirstOrDefault().ImageUrl;
     }
 }

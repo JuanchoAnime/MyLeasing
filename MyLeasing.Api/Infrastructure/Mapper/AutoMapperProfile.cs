@@ -41,7 +41,7 @@
             CreateMap<PropertyDto, PropertyResponse>()
                 .ForMember(dest => dest.PropertyType, opt => opt.MapFrom(src => src.PropertyType.Name));
             CreateMap<PropertyImageDto, PropertyImageResponse>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => $"https://localhost:44357{src.ImageUrl.Substring(1)}"));
+                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => $"{src.ImageUrl}"));
 
             CreateMap<PropertyTypeRest, PropertyTypeDto>();
             CreateMap<PropertyTypeDto, PropertyTypeRest>();
