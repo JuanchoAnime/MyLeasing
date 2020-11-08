@@ -5,6 +5,9 @@
              x:Class="MyLeasing.App">
   <Application.Resources>
 
+        <ResourceDictionary>
+            <x:String x:Key="UrlApi">https://050dbb16f7e1.ngrok.io</x:String>
+        </ResourceDictionary>
     <!-- Application resource dictionary -->
 
   </Application.Resources>

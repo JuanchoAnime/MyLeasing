@@ -4,6 +4,7 @@
     using Prism.Mvvm;
     using Prism.Navigation;
     using System.Threading.Tasks;
+    using Xamarin.Forms;
 
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
@@ -16,30 +17,7 @@
             set { SetProperty(ref _title, value); }
         }
 
-        public ViewModelBase(INavigationService navigationService)
-        {
-            NavigationService = navigationService;
-        }
-
-        public virtual void Initialize(INavigationParameters parameters)
-        {
-
-        }
-
-        public virtual void OnNavigatedFrom(INavigationParameters parameters)
-        {
-
-        }
-
-        public virtual void OnNavigatedTo(INavigationParameters parameters)
-        {
-
-        }
-
-        public virtual void Destroy()
-        {
-
-        }
+        public ViewModelBase(INavigationService navigationService) { NavigationService = navigationService; }
 
         protected async Task ShowMessage(string msg, string title = null, string aceptar = null)
         {
@@ -48,5 +26,15 @@
 
             await Prism.PrismApplicationBase.Current.MainPage.DisplayAlert(title: title, message: msg, cancel: aceptar);
         }
+
+        public string GetStringForDistionary(string key) => Application.Current.Resources[key].ToString();
+
+        public virtual void Initialize(INavigationParameters parameters) { }
+
+        public virtual void OnNavigatedFrom(INavigationParameters parameters) { }
+
+        public virtual void OnNavigatedTo(INavigationParameters parameters) { }
+
+        public virtual void Destroy() { }
     }
 }

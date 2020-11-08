@@ -7,6 +7,7 @@ namespace MyLeasing
     using Xamarin.Essentials.Interfaces;
     using Xamarin.Essentials.Implementation;
     using Xamarin.Forms;
+    using MyLeasing.Service;
 
     public partial class App
     {
@@ -27,7 +28,9 @@ namespace MyLeasing
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.Register<MyLeasingService>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<PropertiesPage, PropertiesPageViewModel>();
         }
     }
 }
