@@ -29,6 +29,11 @@
                 <TapGestureRecognizer Command="{Binding GoBackComand }" />
             </Image.GestureRecognizers>
         </Image>
+        <pv:PancakeView CornerRadius="13" Padding="15,5" BackgroundColor="Black" 
+                        Opacity="0.5" HorizontalOptions="Center" VerticalOptions="Start">
+            <Label Text="{Binding Property.Neighborhood}" FontSize="17" TextColor="White" 
+                   VerticalOptions="CenterAndExpand"/>
+        </pv:PancakeView>
         <pv:PancakeView x:Name="DetailView" Grid.Row="1" CornerRadius="30,30,0,0"
                         Padding="35,35,35,0" Margin="0, -40, 0, 0" BackgroundColor="White" 
                         VerticalOptions="FillAndExpand">
@@ -44,6 +49,50 @@
                         </StackLayout>
                         <Image BackgroundColor="Transparent" Aspect="Fill" WidthRequest="30" HeightRequest="30"
                                Source="direction" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto">
+
+                        <Label FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Price" />
+                        <Label FontAttributes="Bold" Grid.Column="1"
+                               VerticalOptions="Center" Text="{Binding Property.Price,StringFormat='{0:C2}'}" />
+
+                        <Label Grid.Row="1" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Property Type" />
+                        <Label Grid.Row="1" FontAttributes="Bold" Grid.Column="1"
+                               VerticalOptions="Center" Text="{Binding Property.PropertyType }" />
+
+                        <Label Grid.Row="2" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Is Available?" />
+                        <CheckBox Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"
+                               IsChecked="{Binding Property.IsAvailable }" IsEnabled="False" />
+
+                        <Label Grid.Row="3" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Has Parking Lot?" />
+                        <CheckBox Grid.Row="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"
+                               IsChecked="{Binding Property.HasParkingLot }" IsEnabled="False" />
+
+                        <Label Grid.Row="4" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Square Meters" />
+                        <Label Grid.Row="4" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="Center"
+                               VerticalOptions="Center" Text="{Binding Property.SquareMeters,StringFormat='{0:N0}'}" />
+
+                        <Label Grid.Row="5" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Stratum" />
+                        <Label Grid.Row="5" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="Center"
+                               VerticalOptions="Center" Text="{Binding Property.Stratum,StringFormat='{0:N0}'}" />
+
+                        <Label Grid.Row="6" FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Rooms" />
+                        <Label Grid.Row="6" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="Center"
+                               VerticalOptions="Center" Text="{Binding Property.Rooms,StringFormat='{0:N0}'}" />
+                    </Grid>
+                    <Grid RowDefinitions="Auto, Auto">
+                        <Label FontAttributes="Bold" VerticalOptions="Center"
+                               Text="Remarks" TextColor="Black" FontSize="15" LineBreakMode="CharacterWrap" />
+                        <Label Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" Text="{Binding Property.Remarks}" />
                     </Grid>
                 </StackLayout>
             </ScrollView>

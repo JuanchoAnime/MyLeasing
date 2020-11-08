@@ -53,13 +53,13 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <pv:PancakeView HeightRequest="225" Margin="5,10"
+                        <pv:PancakeView HeightRequest="225" Margin="5,10" HorizontalOptions="FillAndExpand"
                                         CornerRadius="5" BackgroundColor="White">
                             <pv:PancakeView.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding BindingContext.GotoPropertyCommand, Source={x:Reference MyList}}"
                                                           CommandParameter="{Binding .}"/>
                             </pv:PancakeView.GestureRecognizers>
-                            <Grid RowDefinitions="Auto, *">
+                            <Grid RowDefinitions="Auto, *" HorizontalOptions="FillAndExpand">
                                 <ff:CachedImage
                                     Source="{Binding FirstImage}"
                                     ErrorPlaceholder="no_property_image"
@@ -85,8 +85,13 @@
                                         </StackLayout>
                                     </pv:PancakeView>
                                 </Grid>
-                                <StackLayout Grid.Row="1" Spacing="5" Margin="20,5">
-                                    <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="15" TextColor="Black" />
+                                <StackLayout Grid.Row="1" Spacing="5" Margin="20,5" HorizontalOptions="FillAndExpand" >
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                                        <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="15" 
+                                               TextColor="Black" HorizontalOptions="Start" />
+                                        <Label Text="{Binding Neighborhood}" FontSize="15" 
+                                               TextColor="Black" HorizontalOptions="End" />
+                                    </StackLayout>
                                     <StackLayout Orientation="Horizontal" Spacing="15">
                                         <StackLayout Orientation="Horizontal" Spacing="10">
                                             <Image WidthRequest="16" Source="bed" />
@@ -98,7 +103,8 @@
                                         </StackLayout>
                                         <StackLayout Orientation="Horizontal" Spacing="10">
                                             <Image WidthRequest="16" Source="square" />
-                                            <Label FontSize="12" TextColor="Black" Text="{Binding SquareMeters}" />
+                                            <Label FontSize="12" TextColor="Black" 
+                                                   Text="{Binding SquareMeters, StringFormat='{0:N0}'}" />
                                         </StackLayout>
                                     </StackLayout>
                                 </StackLayout>
