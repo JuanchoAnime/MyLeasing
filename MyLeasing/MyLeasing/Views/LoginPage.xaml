@@ -23,6 +23,10 @@
                            VerticalOptions="CenterAndExpand"/>
 
         <Button x:Name="btnLogin"
+                BackgroundColor="Navy"
+                TextColor="White"
+                CornerRadius="23"
+                HeightRequest="46"
                 Command="{Binding LoginCommand}"
                 IsEnabled="{Binding IsEnabled}" />
     </StackLayout>

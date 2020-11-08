@@ -5,10 +5,11 @@
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Silver"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MyLeasing.Views.PropertiesPage">
 
-    <Grid BackgroundColor="#F9F9F9" HorizontalOptions="FillAndExpand"
+    <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"
           VerticalOptions="FillAndExpand" Padding="20"
           RowDefinitions="Auto,Auto,*">
         <Frame HasShadow="True" Margin="0,20"
@@ -29,7 +30,7 @@
         </Frame>
 
         <StackLayout Grid.Row="1" >
-            <Label Text="Property Types" TextColor="#515151" FontSize="15" />
+            <Label Text="Property Types" TextColor="#515151" FontSize="15" FontAttributes="Bold" />
             <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
                 <StackLayout Orientation="Horizontal" Spacing="10" BindableLayout.ItemsSource="{Binding PropertyTypes}">
                     <BindableLayout.ItemTemplate>
@@ -63,6 +64,10 @@
                                     Source="{Binding FirstImage}"
                                     ErrorPlaceholder="apt2.jpeg"
                                     HeightRequest="160"
+                                    CacheDuration="50"
+                                    RetryCount="3"
+                                    RetryDelay="600"
+                                    DownsampleToViewSize="True"
                                     Aspect="AspectFill"
                                     LoadingPlaceholder="apt2.jpeg"/>
                                 <Image Source="bookmark" HorizontalOptions="End"
@@ -81,7 +86,7 @@
                                     </pv:PancakeView>
                                 </Grid>
                                 <StackLayout Grid.Row="1" Spacing="5" Margin="20,5">
-                                    <Label Text="{Binding Price}" FontSize="15" TextColor="Black" />
+                                    <Label Text="{Binding Price, StringFormat='{0:C2}'}" FontSize="15" TextColor="Black" />
                                     <StackLayout Orientation="Horizontal" Spacing="15">
                                         <StackLayout Orientation="Horizontal" Spacing="10">
                                             <Image WidthRequest="16" Source="bed" />
