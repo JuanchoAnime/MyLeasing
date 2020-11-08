@@ -9,5 +9,7 @@
         public static string ParamProperty = "paramProperty";
 
         public static string UrlPing = "https://google.com";
+
+        public static string ParamContract = "paramContract";
     }
 }

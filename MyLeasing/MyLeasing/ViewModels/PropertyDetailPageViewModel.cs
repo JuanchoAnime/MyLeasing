@@ -8,13 +8,6 @@
     public class PropertyDetailPageViewModel : ViewModelBase
     {
         private PropertyResponse _property;
-        private OwnerResponse _owner;
-
-        public OwnerResponse Owner
-        {
-            get => _owner;
-            set => SetProperty(ref _owner, value);
-        }
 
         public PropertyResponse Property
         {
@@ -35,7 +28,6 @@
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            Owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
             Property = parameters.GetValue<PropertyResponse>(Constants.ParamProperty);
         }
     }

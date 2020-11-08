@@ -13,7 +13,7 @@
     {
         private ObservableCollection<PropertyResponse> _properties;
         private ObservableCollection<string> _propertyTypes;
-        private OwnerResponse _owner;
+
         public ObservableCollection<string> PropertyTypes
         {
             get => _propertyTypes;
@@ -36,12 +36,12 @@
         private async void GotoProperty(object obj)
         {
             var property = obj as PropertyResponse;
-            await NavigationService.NavigateAsync($"{nameof(PropertyDetailPage)}", (Constants.ParamProperty, property), (Constants.ParamOwner, _owner));
+            await NavigationService.NavigateAsync($"{nameof(PropertyDetailPage)}", (Constants.ParamProperty, property));
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            _owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
+            var  _owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
             Properties = new ObservableCollection<PropertyResponse>(_owner.Properties);
             PropertyTypes = new ObservableCollection<string>(_owner.Properties.Select(p => p.PropertyType).Distinct());
         }

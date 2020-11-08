@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyLeasing.Views.ContractsPage">
+
+    <StackLayout Padding="10">
+        <Grid ColumnDefinitions="*,*,*,20" RowDefinitions="Auto">
+            <Label Text="Start Date" FontAttributes="Bold" />
+            <Label Text="End Date" FontAttributes="Bold" />
+            <Label Text="Lessee" FontAttributes="Bold" />
+        </Grid>
+        <ListView ItemsSource="{Binding Contracts}" x:Name="MyContracts">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*,*,Auto" RowDefinitions="Auto">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectContractCommand, Source= x:Reference MyContracts}"
+                                                      CommandParameter="{Binding .}" />
+                            </Grid.GestureRecognizers>
+                            <Label Text="{Binding StartDateLocal, StringFormat='{0:yyyy/MM/dd}'}" />
+                            <Label Grid.Column="1" 
+                                   Text="{Binding EndDateLocal, StringFormat='{0:yyyy/MM/dd}'}" />
+                            <Label Grid.Column="2" 
+                                   Text="{Binding Lessee.FullName}" />
+                            <Image Grid.Column="3" Source="ic_chevron_right" WidthRequest="20"
+                                   HeightRequest="20"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>
