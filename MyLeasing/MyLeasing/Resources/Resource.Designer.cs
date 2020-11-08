@@ -115,6 +115,15 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a User Or Password Incorrect..
+        /// </summary>
+        public static string InvalidLogin {
+            get {
+                return ResourceManager.GetString("InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Login.
         /// </summary>
         public static string Login {

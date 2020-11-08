@@ -16,26 +16,26 @@
             {
                 var owner = await RestService.For<IMyLeasingService>(viewModel.GetStringForDistionary(Constants.UrlApi))
                                     .GetOwnerByEmail(new Common.Rest.EmailRequest() { Email = email });
-                if (owner == null)
-                {
+                if (owner == null) {
                     return new Response<OwnerResponse> {
                         IsSuccess = false,
-                        Message = "User Or Password Incorrect"
+                        Message = Languages.InvalidLogin
                     };
                 }
-                return new Response<OwnerResponse>
-                {
+                return new Response<OwnerResponse> {
                     IsSuccess = true,
                     Result = owner
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new Response<OwnerResponse> {
                     IsSuccess = false,
-                    Message = ex.Message
+                    Message = Languages.InvalidLogin
                 };
             }
         }
+
+
     }
 }

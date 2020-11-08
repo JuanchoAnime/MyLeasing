@@ -30,5 +30,7 @@
         public static string EmailPlaceHolder => Resource.EmailPlaceHolder;
 
         public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
+
+        public static string InvalidLogin => Resource.InvalidLogin;
     }
 }

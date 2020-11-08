@@ -135,6 +135,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>User Or Password Incorrect.</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>

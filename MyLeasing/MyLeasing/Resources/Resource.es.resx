@@ -144,4 +144,7 @@
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Contraseña</value>
   </data>
+  <data name="InvalidLogin" xml:space="preserve">
+    <value>Usuario O Contraseña Invalida</value>
+  </data>
 </root>
