@@ -2,6 +2,7 @@
 {
     using MyLeasing.Helpers;
     using MyLeasing.Service;
+    using MyLeasing.Views;
     using Prism.Commands;
     using Prism.Navigation;
 
@@ -62,18 +63,20 @@
                 await this.ShowMessage(Languages.PasswordError);
                 return;
             }
-            Password = string.Empty;
             IsRunning = true;
             IsEnabled = false;
             var result = await _myLeasingService.GetOwnerByEmail(this, Email);
-            IsRunning = false;
-            IsEnabled = true;
-            if (!result.IsSuccess) { 
+            Password = string.Empty;
+            if (!result.IsSuccess)
+            {
+                IsRunning = false;
+                IsEnabled = true;
                 await this.ShowMessage(result.Message);
                 return;
             }
-            await this.ShowMessage(result.Result.FullName, "Fuck Yeah");
-            await NavigationService.NavigateAsync("PropertiesPage");
+            await NavigationService.NavigateAsync($"{nameof(PropertiesPage)}", (Constants.ParamOwner, result.Result));
+            IsRunning = false;
+            IsEnabled = true;
         }
     }
 }

@@ -9,11 +9,13 @@
     <StackLayout Padding="10">
         <Label x:Name="lblEmail" />
         <Entry Keyboard="Email"
+               IsEnabled="{Binding IsEnabled}"
                x:Name="txtEmail"
                Text="{Binding Email}" />
 
         <Label  x:Name="lblPassword" />
         <Entry IsPassword="True"
+               IsEnabled="{Binding IsEnabled}"
                x:Name="txtPassword"
                Text="{Binding Password}"/>
 
