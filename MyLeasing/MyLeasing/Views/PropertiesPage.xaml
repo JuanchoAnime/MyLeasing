@@ -60,7 +60,7 @@
                             </pv:PancakeView.GestureRecognizers>
                             <Grid RowDefinitions="Auto, *">
                                 <ff:CachedImage
-                                    Source="apt2.jpeg"
+                                    Source="{Binding FirstImage}"
                                     ErrorPlaceholder="apt2.jpeg"
                                     HeightRequest="160"
                                     Aspect="AspectFill"
