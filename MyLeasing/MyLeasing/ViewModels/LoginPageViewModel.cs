@@ -65,7 +65,16 @@
             }
             IsRunning = true;
             IsEnabled = false;
-            var result = await _myLeasingService.GetOwnerByEmail(this, Email);
+
+            var response = await _myLeasingService.CheckConnectionAsync();
+            if (!response.IsSuccess) {
+                IsRunning = false;
+                IsEnabled = true;
+                await this.ShowMessage(response.Message);
+                return;
+            }
+
+            var result = await _myLeasingService.GetOwnerByEmailAsync(this, Email);
             Password = string.Empty;
             if (!result.IsSuccess)
             {

@@ -1,6 +1,7 @@
 ﻿namespace MyLeasing.Common.Response
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class PropertyResponse
     {
@@ -29,5 +30,8 @@
         public ICollection<PropertyImageResponse> PropertiesImages { get; set; }
 
         public ICollection<ContractResponse> Contracts { get; set; }
+
+        public string FirstImage => PropertiesImages == null || PropertiesImages.Count == 0
+                                    ? "apt2.jpeg" : PropertiesImages.FirstOrDefault().ImageUrl;
     }
 }

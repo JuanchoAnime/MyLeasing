@@ -7,5 +7,7 @@
         public static string ParamOwner = "paramOwner";
 
         public static string ParamProperty = "paramProperty";
+
+        public static string UrlPing = "https://google.com";
     }
 }
