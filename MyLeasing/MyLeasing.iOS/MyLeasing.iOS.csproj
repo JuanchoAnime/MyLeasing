@@ -199,6 +199,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CardsView">
+      <Version>2.6.8</Version>
+    </PackageReference>
     <PackageReference Include="Refit">
       <Version>5.2.1</Version>
     </PackageReference>
