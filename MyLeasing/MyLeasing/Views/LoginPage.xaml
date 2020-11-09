@@ -3,32 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
              x:Class="MyLeasing.Views.LoginPage"
              Title="{Binding Title}">
 
-    <StackLayout Padding="10">
-        <Label x:Name="lblEmail" />
-        <Entry Keyboard="Email"
-               IsEnabled="{Binding IsEnabled}"
-               x:Name="txtEmail"
-               Text="{Binding Email}" />
+    <StackLayout VerticalOptions="FillAndExpand" >
 
-        <Label  x:Name="lblPassword" />
-        <Entry IsPassword="True"
-               IsEnabled="{Binding IsEnabled}"
-               x:Name="txtPassword"
-               Text="{Binding Password}"/>
+        <Grid>
+            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
+            </BoxView>
+            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
+                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+        </Grid>
+        <StackLayout Padding="10" VerticalOptions="FillAndExpand">
 
-        <ActivityIndicator IsRunning="{Binding IsRunning}"
-                           VerticalOptions="CenterAndExpand"/>
+            <Label x:Name="lblEmail" />
+            <Entry Keyboard="Email"
+                   IsEnabled="{Binding IsEnabled}"
+                   x:Name="txtEmail"
+                   Text="{Binding Email}" />
 
-        <Button x:Name="btnLogin"
-                BackgroundColor="Navy"
-                TextColor="White"
-                CornerRadius="23"
-                HeightRequest="46"
-                Command="{Binding LoginCommand}"
-                IsEnabled="{Binding IsEnabled}" />
+            <Label  x:Name="lblPassword" />
+            <Entry IsPassword="True"
+                   IsEnabled="{Binding IsEnabled}"
+                   x:Name="txtPassword"
+                   Text="{Binding Password}"/>
+
+            <ActivityIndicator IsRunning="{Binding IsRunning}"
+                               VerticalOptions="CenterAndExpand"/>
+
+            <Button x:Name="btnLogin"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    CornerRadius="23"
+                    HeightRequest="46"
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled}" />
+        </StackLayout>
     </StackLayout>
-    
 </ContentPage>

@@ -32,5 +32,9 @@
         public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
 
         public static string InvalidLogin => Resource.InvalidLogin;
+
+        public static string ContractPage => Resource.ContractPage;
+
+        public static string ContractDetailPage => Resource.ContractDetailPage;
     }
 }

@@ -2,6 +2,7 @@
 {
     using MyLeasing.Common.Response;
     using MyLeasing.Helpers;
+    using MyLeasing.Views;
     using Prism.Navigation;
     using System.Collections.ObjectModel;
     using System.Windows.Input;
@@ -14,6 +15,7 @@
         public ContractsPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+            Title = Languages.ContractPage;
         }
 
         public ObservableCollection<ContractResponse> Contracts
@@ -27,7 +29,7 @@
         private async void SelectContract(object obj)
         {
             var contract = obj as ContractResponse;
-            await NavigationService.NavigateAsync($"nameof(ContractPage)", (Constants.ParamContract, contract));
+            await NavigationService.NavigateAsync($"{nameof(ContractPage)}", (Constants.ParamContract, contract));
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

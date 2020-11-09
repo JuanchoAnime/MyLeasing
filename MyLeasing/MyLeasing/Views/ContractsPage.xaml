@@ -3,13 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="MyLeasing.Views.ContractsPage">
+             NavigationPage.HasNavigationBar="False"
+             x:Class="MyLeasing.Views.ContractsPage"
+             Title="{Binding Title}">
 
-    <StackLayout Padding="10">
-        <Grid ColumnDefinitions="*,*,*,20" RowDefinitions="Auto">
+    <StackLayout VerticalOptions="FillAndExpand" >
+
+        <Grid>
+            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
+            </BoxView>
+            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
+                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+        </Grid>
+
+        <Grid Padding="10" ColumnDefinitions="*,*,*,20" RowDefinitions="Auto">
             <Label Text="Start Date" FontAttributes="Bold" />
-            <Label Text="End Date" FontAttributes="Bold" />
-            <Label Text="Lessee" FontAttributes="Bold" />
+            <Label Grid.Column="1" Text="End Date" FontAttributes="Bold" />
+            <Label Grid.Column="2" Text="Lessee" FontAttributes="Bold" />
         </Grid>
         <ListView ItemsSource="{Binding Contracts}" x:Name="MyContracts">
             <ListView.ItemTemplate>
@@ -17,7 +27,7 @@
                     <ViewCell>
                         <Grid ColumnDefinitions="*,*,*,Auto" RowDefinitions="Auto">
                             <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BindingContext.SelectContractCommand, Source= x:Reference MyContracts}"
+                                <TapGestureRecognizer Command="{Binding BindingContext.SelectContractCommand, Source={x:Reference MyContracts}}"
                                                       CommandParameter="{Binding .}" />
                             </Grid.GestureRecognizers>
                             <Label Text="{Binding StartDateLocal, StringFormat='{0:yyyy/MM/dd}'}" />

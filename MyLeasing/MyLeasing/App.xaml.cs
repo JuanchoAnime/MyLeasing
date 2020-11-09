@@ -33,6 +33,7 @@ namespace MyLeasing
             containerRegistry.RegisterForNavigation<PropertiesPage, PropertiesPageViewModel>();
             containerRegistry.RegisterForNavigation<PropertyDetailPage, PropertyDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<ContractsPage, ContractsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ContractPage, ContractPageViewModel>();
         }
     }
 }

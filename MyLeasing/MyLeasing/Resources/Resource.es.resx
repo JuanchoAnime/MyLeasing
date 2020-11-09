@@ -147,4 +147,10 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>Usuario O Contraseña Invalida</value>
   </data>
+  <data name="ContractPage" xml:space="preserve">
+    <value>Contratos</value>
+  </data>
+  <data name="ContractDetailPage" xml:space="preserve">
+    <value>Contrato de:</value>
+  </data>
 </root>

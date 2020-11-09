@@ -120,6 +120,12 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="ContractDetailPage" xml:space="preserve">
+    <value>Contract Of:</value>
+  </data>
+  <data name="ContractPage" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
   <data name="EmailError" xml:space="preserve">
     <value>You Must Enter An Email.</value>
   </data>

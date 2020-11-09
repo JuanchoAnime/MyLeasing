@@ -70,6 +70,24 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contract Of:.
+        /// </summary>
+        public static string ContractDetailPage {
+            get {
+                return ResourceManager.GetString("ContractDetailPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Contracts.
+        /// </summary>
+        public static string ContractPage {
+            get {
+                return ResourceManager.GetString("ContractPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a You Must Enter An Email..
         /// </summary>
         public static string EmailError {

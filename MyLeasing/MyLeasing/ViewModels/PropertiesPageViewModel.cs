@@ -36,7 +36,7 @@
         private async void GotoProperty(object obj)
         {
             var property = obj as PropertyResponse;
-            await NavigationService.NavigateAsync($"{nameof(PropertyDetailPage)}", (Constants.ParamProperty, property));
+            await NavigationService.NavigateAsync($"{nameof(ContractsPage)}", (Constants.ParamProperty, property));
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
