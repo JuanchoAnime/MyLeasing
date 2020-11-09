@@ -6,6 +6,7 @@
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              NavigationPage.HasNavigationBar="False"
              prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="LightGray"
              x:Class="MyLeasing.Views.PropertiesPage">
 
     <Grid BackgroundColor="Transparent" HorizontalOptions="FillAndExpand"
