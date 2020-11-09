@@ -2,6 +2,7 @@
 {
     using MyLeasing.Common.Response;
     using MyLeasing.Helpers;
+    using Newtonsoft.Json;
     using Prism.Commands;
     using Prism.Navigation;
 
@@ -18,17 +19,12 @@
         public PropertyDetailPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+            Property = JsonConvert.DeserializeObject<PropertyResponse>(Settings.PropertyResponse);
+            Title = Property.Neighborhood;
         }
 
         public DelegateCommand GoBackComand => new DelegateCommand(GoBack);
 
-        private async void GoBack() { 
-            await NavigationService.GoBackAsync(); 
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            Property = parameters.GetValue<PropertyResponse>(Constants.ParamProperty);
-        }
+        private async void GoBack() {  await NavigationService.GoBackAsync();  }
     }
 }

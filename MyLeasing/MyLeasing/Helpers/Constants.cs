@@ -11,5 +11,7 @@
         public static string UrlPing = "https://google.com";
 
         public static string ParamContract = "paramContract";
+
+        public static string ParamPropertyName = "paramPropertyName";
     }
 }

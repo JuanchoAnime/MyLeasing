@@ -3,18 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             NavigationPage.HasNavigationBar="False"
              x:Class="MyLeasing.Views.ContractsPage"
+             IconImageSource="ic_action_format_list_bulleted"
              Title="{Binding Title}">
 
     <StackLayout VerticalOptions="FillAndExpand" >
-
-        <Grid>
-            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
-            </BoxView>
-            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
-                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
-        </Grid>
 
         <Grid Padding="10" ColumnDefinitions="*,*,*,20" RowDefinitions="Auto">
             <Label Text="Start Date" FontAttributes="Bold" />

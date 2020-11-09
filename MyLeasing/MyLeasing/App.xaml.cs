@@ -34,6 +34,7 @@ namespace MyLeasing
             containerRegistry.RegisterForNavigation<PropertyDetailPage, PropertyDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<ContractsPage, ContractsPageViewModel>();
             containerRegistry.RegisterForNavigation<ContractPage, ContractPageViewModel>();
+            containerRegistry.RegisterForNavigation<HomeTabbedPage, HomeTabbedPageViewModel>();
         }
     }
 }

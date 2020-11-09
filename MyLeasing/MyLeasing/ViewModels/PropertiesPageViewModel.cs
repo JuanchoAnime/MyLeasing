@@ -3,6 +3,7 @@
     using MyLeasing.Common.Response;
     using MyLeasing.Helpers;
     using MyLeasing.Views;
+    using Newtonsoft.Json;
     using Prism.Navigation;
     using System.Collections.ObjectModel;
     using System.Linq;
@@ -36,14 +37,17 @@
         private async void GotoProperty(object obj)
         {
             var property = obj as PropertyResponse;
-            await NavigationService.NavigateAsync($"{nameof(ContractsPage)}", (Constants.ParamProperty, property));
+            Settings.PropertyResponse = JsonConvert.SerializeObject(property);
+            await NavigationService.NavigateAsync($"{nameof(HomeTabbedPage)}");
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            var  _owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
-            Properties = new ObservableCollection<PropertyResponse>(_owner.Properties);
-            PropertyTypes = new ObservableCollection<string>(_owner.Properties.Select(p => p.PropertyType).Distinct());
+            if (parameters.ContainsKey(Constants.ParamOwner)) {
+                var _owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
+                Properties = new ObservableCollection<PropertyResponse>(_owner.Properties);
+                PropertyTypes = new ObservableCollection<string>(_owner.Properties.Select(p => p.PropertyType).Distinct());
+            }
         }
     }
 }

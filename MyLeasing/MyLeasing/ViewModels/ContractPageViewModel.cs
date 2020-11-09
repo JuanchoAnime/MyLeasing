@@ -7,11 +7,12 @@
     public class ContractPageViewModel : ViewModelBase
     {
         private ContractResponse _contract;
+        private string _nameProperty;
 
         public ContractPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = Languages.ContractDetailPage;
+            Title = Languages.ContractPage;
         }
 
         public ContractResponse Contract
@@ -20,11 +21,15 @@
             set => SetProperty(ref _contract, value);
         }
 
-        public override async void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            if (!parameters.ContainsKey(Constants.ParamContract))
-                await ShowMessage("Exception Paramas Contract Invalid");
-            Contract = parameters.GetValue<ContractResponse>(Constants.ParamContract);
+            if (parameters.ContainsKey(Constants.ParamContract))
+                Contract = parameters.GetValue<ContractResponse>(Constants.ParamContract);
+
+            if (parameters.ContainsKey(Constants.ParamPropertyName)) {
+                _nameProperty = parameters.GetValue<string>(Constants.ParamPropertyName);
+                Title = $"{Languages.ContractDetailPage} {_nameProperty}";
+            }
         }
     }
 }
