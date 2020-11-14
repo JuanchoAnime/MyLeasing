@@ -7,38 +7,58 @@
              x:Class="MyLeasing.Views.LoginPage"
              Title="{Binding Title}">
 
-    <StackLayout VerticalOptions="FillAndExpand" >
-
+    <StackLayout>
         <Grid>
-            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
-            </BoxView>
+            <BoxView BackgroundColor="#1976D2" HeightRequest="70" />
             <Label Text="{Binding Title}" FontSize="20" TextColor="Black" FontAttributes="Bold" Margin="10"
-                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                           VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
         </Grid>
-        <StackLayout Padding="10" VerticalOptions="FillAndExpand">
+        <AbsoluteLayout Padding="0" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
 
-            <Label x:Name="lblEmail" />
-            <Entry Keyboard="Email"
-                   IsEnabled="{Binding IsEnabled}"
-                   x:Name="txtEmail"
-                   Text="{Binding Email}" />
-
-            <Label  x:Name="lblPassword" />
-            <Entry IsPassword="True"
-                   IsEnabled="{Binding IsEnabled}"
-                   x:Name="txtPassword"
-                   Text="{Binding Password}"/>
-
-            <ActivityIndicator IsRunning="{Binding IsRunning}"
-                               VerticalOptions="CenterAndExpand"/>
-
-            <Button x:Name="btnLogin"
-                    BackgroundColor="Navy"
-                    TextColor="White"
-                    CornerRadius="23"
-                    HeightRequest="46"
-                    Command="{Binding LoginCommand}"
-                    IsEnabled="{Binding IsEnabled}" />
-        </StackLayout>
+                <Grid RowDefinitions="*,Auto,*">
+                    <StackLayout Grid.Row="1" Padding="10,0 " VerticalOptions="Center">
+                        <Label x:Name="lblEmail" />
+                        <Entry Keyboard="Email"
+                            IsEnabled="{Binding IsEnabled}"
+                            x:Name="txtEmail"
+                            Text="{Binding Email}" />
+                        <Label  x:Name="lblPassword" />
+                        <Entry IsPassword="True"
+                            IsEnabled="{Binding IsEnabled}"
+                            x:Name="txtPassword"
+                            Text="{Binding Password}"/>
+                    </StackLayout>
+                    <Button x:Name="btnLogin"
+                            Grid.Row="2"
+                            Padding="0,10"
+                            BackgroundColor="Navy"
+                            TextColor="White"
+                            CornerRadius="23"
+                            VerticalOptions="End"
+                            HeightRequest="46"
+                            Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding IsEnabled}" />
+                </Grid>
+                
+                
+            </ScrollView>
+            <ContentView BackgroundColor="#C0808080" Padding="10, 0" 
+                         IsVisible="{Binding IsRunning}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                         AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="150" 
+                                 WidthRequest="200" BackgroundColor="White">
+                        <ActivityIndicator Margin="0,50,0,0" VerticalOptions="Center" 
+                                           HorizontalOptions="Center" Color="Black" 
+                                           WidthRequest="30" HeightRequest="30"
+                                           IsRunning="{Binding IsRunning}"/>
+                        <Label TextColor="Black" VerticalOptions="Center" 
+                               HorizontalOptions="Center" VerticalTextAlignment="Center" 
+                               Text="Loading..." FontSize="20" ></Label>
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
     </StackLayout>
 </ContentPage>
