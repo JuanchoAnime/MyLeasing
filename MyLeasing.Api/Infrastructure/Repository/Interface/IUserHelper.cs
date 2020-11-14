@@ -18,5 +18,9 @@
         Task<bool> IsUserInRoleAsync(UserDto user, string roleName);
 
         Task<SignInResult> LoginAsync(LoginRequest login);
+
+        Task<IdentityResult> ChangePasswordAsync(UserDto user, string oldPassword, string newPassword);
+
+        Task<IdentityResult> UpdateUserAsync(UserDto userDto);
     }
 }
