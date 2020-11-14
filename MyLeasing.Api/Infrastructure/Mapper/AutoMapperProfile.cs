@@ -24,6 +24,9 @@
             CreateMap<OwnerRest, OwnerDto>();
             CreateMap<OwnerDto, OwnerRest>();
 
+            CreateMap<ManagerRest, ManagerDto>();
+            CreateMap<ManagerDto, ManagerRest>();
+
             CreateMap<LesseeRest, LesseeDto>();
             CreateMap<LesseeDto, LesseeRest>();
 

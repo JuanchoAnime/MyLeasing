@@ -59,6 +59,7 @@
             services.AddScoped<IPropertyImageRepository, PropertyImageRepository>();
             services.AddScoped<IContractRepository, ContractRepository>();
             services.AddScoped<ILesseeRepository, LesseeRepository>();
+            services.AddScoped<IManagerRepository, ManagerRepository>();
 
             //Application
             services.AddScoped<PropertyTypeApplication>();
@@ -66,6 +67,7 @@
             services.AddScoped<PropertyApplication>();
             services.AddScoped<LesseeApplication>();
             services.AddScoped<AcoountApplication>();
+            services.AddScoped<ManagerApplication>();
 
             //Service
             services.AddScoped<IUserHelper, UserHelper>();
