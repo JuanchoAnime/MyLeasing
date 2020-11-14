@@ -55,7 +55,6 @@
             services.AddScoped<IPropertyTypeRepository, PropertyTypeRepository>();
             services.AddScoped<IPropertyRepository, PropertyRepository>();
             services.AddScoped<IOwnerRepository, OwnerRepository>();
-            services.AddScoped<IUserHelper, UserHelper>();
             services.AddScoped<IImageHelper, ImageHelper>();
             services.AddScoped<IPropertyImageRepository, PropertyImageRepository>();
             services.AddScoped<IContractRepository, ContractRepository>();
@@ -67,6 +66,10 @@
             services.AddScoped<PropertyApplication>();
             services.AddScoped<LesseeApplication>();
             services.AddScoped<AcoountApplication>();
+
+            //Service
+            services.AddScoped<IUserHelper, UserHelper>();
+            services.AddScoped<IMail, Mail>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
