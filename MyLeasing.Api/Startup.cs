@@ -65,6 +65,7 @@
             services.AddScoped<PropertyTypeApplication>();
             services.AddScoped<OwnerApplication>();
             services.AddScoped<PropertyApplication>();
+            services.AddScoped<LesseeApplication>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

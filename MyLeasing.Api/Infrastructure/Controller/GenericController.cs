@@ -4,7 +4,6 @@
     using MyLeasing.Api.Core.Application;
     using MyLeasing.Api.Infrastructure.Data.Entities;
     using MyLeasing.Common.Rest;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     [ApiController]
@@ -34,7 +33,8 @@
         [HttpPut("{id}")]
         public virtual async Task<IActionResult> Put([FromRoute] int id, [FromBody] Rest entity)
         {
-            if (!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
 
@@ -46,7 +46,8 @@
         [HttpPost]
         public virtual async Task<IActionResult> Post([FromBody] Rest entity)
         {
-            if (!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
             entity.Id = 0;

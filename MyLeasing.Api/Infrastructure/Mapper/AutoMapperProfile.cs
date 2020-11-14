@@ -24,6 +24,9 @@
             CreateMap<OwnerRest, OwnerDto>();
             CreateMap<OwnerDto, OwnerRest>();
 
+            CreateMap<LesseeRest, LesseeDto>();
+            CreateMap<LesseeDto, LesseeRest>();
+
             CreateMap<OwnerDto, OwnerResponse>()
                 .ForMember(dest => dest.FirstName, opt => opt.MapFrom(src => src.User.FirstName))
                 .ForMember(dest => dest.LastName, opt => opt.MapFrom(src => src.User.LastName))

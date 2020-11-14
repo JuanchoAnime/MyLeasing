@@ -7,5 +7,7 @@
         public UserRest User { get; set; }
 
         public ICollection<ContractRest> Contracts { get; set; }
+
+        public string Password { get; set; }
     }
 }
