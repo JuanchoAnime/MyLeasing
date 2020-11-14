@@ -6,7 +6,7 @@
              xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView" 
              xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             IconImageSource="ic_action_home"
+             IconImageSource="{OnPlatform iOS=ic_action_home}"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
              x:Class="MyLeasing.Views.PropertyDetailPage"
@@ -47,12 +47,6 @@
             <controls:RightArrowControl ToFadeDuration="2500"/>
         </cards:CarouselView>
         
-        <Image BackgroundColor="Transparent" Aspect="Fill" Source="back" Margin="25" WidthRequest="20"
-               HeightRequest="20" HorizontalOptions="Start" VerticalOptions="Start">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding GoBackComand }" />
-            </Image.GestureRecognizers>
-        </Image>
         <pv:PancakeView x:Name="DetailView" Grid.Row="1" CornerRadius="30,30,0,0"
                         Padding="35,35,35,0" Margin="0, -40, 0, 0" BackgroundColor="White" 
                         VerticalOptions="FillAndExpand">

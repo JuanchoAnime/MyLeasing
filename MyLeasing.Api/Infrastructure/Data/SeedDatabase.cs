@@ -58,7 +58,7 @@
             {
                 var owner = _dataContext.Owners.FirstOrDefault();
                 var propertype = _dataContext.PropertyTypes.FirstOrDefault();
-                AddProperty("Carrera #43 calle 73a 83", "Pobldo", owner, propertype, 80000000M, 2, 72, 4);
+                AddProperty("Carrera #43 calle 73a 83", "Poblado", owner, propertype, 80000000M, 2, 72, 4);
                 AddProperty("Carrera #12 Sur calle 3a 43", "Envigado", owner, propertype, 95000000M, 3, 81, 3);
                 await _dataContext.SaveChangesAsync();
             }

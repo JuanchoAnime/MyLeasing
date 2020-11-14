@@ -3,7 +3,6 @@
     using MyLeasing.Common.Response;
     using MyLeasing.Helpers;
     using Newtonsoft.Json;
-    using Prism.Commands;
     using Prism.Navigation;
 
     public class PropertyDetailPageViewModel : ViewModelBase
@@ -22,9 +21,5 @@
             Property = JsonConvert.DeserializeObject<PropertyResponse>(Settings.PropertyResponse);
             Title = Property.Neighborhood;
         }
-
-        public DelegateCommand GoBackComand => new DelegateCommand(GoBack);
-
-        private async void GoBack() {  await NavigationService.GoBackAsync();  }
     }
 }

@@ -6,9 +6,8 @@
   <Application.Resources>
 
         <ResourceDictionary>
-            <x:String x:Key="UrlApi">http://bac2ac37a1f2.ngrok.io</x:String>
+            <x:String x:Key="UrlApi">http://pruebacategorias.somee.com</x:String>
         </ResourceDictionary>
-    <!-- Application resource dictionary -->
 
-  </Application.Resources>
+    </Application.Resources>
 </prism:PrismApplication>
