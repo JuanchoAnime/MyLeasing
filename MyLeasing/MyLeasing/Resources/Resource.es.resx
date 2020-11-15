@@ -177,4 +177,16 @@
   <data name="Properties" xml:space="preserve">
     <value>Propiedades</value>
   </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Recuperar Contraseña.</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Recordarme.</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="TextRegister" xml:space="preserve">
+    <value>No tiene una Cuenta con Nosotros?</value>
+  </data>
 </root>

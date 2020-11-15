@@ -151,6 +151,15 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Forgot Your Password?.
+        /// </summary>
+        public static string ForgotPassword {
+            get {
+                return ResourceManager.GetString("ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a User Or Password Incorrect..
         /// </summary>
         public static string InvalidLogin {
@@ -228,6 +237,33 @@ namespace MyLeasing.Resources {
         public static string Properties {
             get {
                 return ResourceManager.GetString("Properties", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Keep me logged in.
+        /// </summary>
+        public static string Rememberme {
+            get {
+                return ResourceManager.GetString("Rememberme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SignUp.
+        /// </summary>
+        public static string SignUp {
+            get {
+                return ResourceManager.GetString("SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Don&apos;t have an account?.
+        /// </summary>
+        public static string TextRegister {
+            get {
+                return ResourceManager.GetString("TextRegister", resourceCulture);
             }
         }
         

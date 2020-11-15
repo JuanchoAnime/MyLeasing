@@ -52,5 +52,13 @@
         public static string Maps => Resource.Maps;
 
         public static string LogOut => Resource.LogOut;
+
+        public static string SignUp => Resource.SignUp;
+
+        public static string TextRegister => Resource.TextRegister;
+
+        public static string ForgotPassword => Resource.ForgotPassword;
+
+        public static string Rememberme => Resource.Rememberme;
     }
 }

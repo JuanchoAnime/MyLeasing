@@ -147,6 +147,9 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Forgot Your Password?</value>
+  </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>User Or Password Incorrect.</value>
   </data>
@@ -173,6 +176,15 @@
   </data>
   <data name="Properties" xml:space="preserve">
     <value>Properties</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>Keep me logged in</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>SignUp</value>
+  </data>
+  <data name="TextRegister" xml:space="preserve">
+    <value>Don't have an account?</value>
   </data>
   <data name="TurnConection" xml:space="preserve">
     <value>Please Turn Your Internet Conection</value>

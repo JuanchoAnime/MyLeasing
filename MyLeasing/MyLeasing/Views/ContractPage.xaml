@@ -27,7 +27,7 @@
                     <Label Grid.Row="2" Grid.Column="1" Text="{Binding Contract.EndDateLocal, StringFormat='{0:yyyy/MM/dd}'}" />
 
                     <Label Grid.Row="3" FontAttributes="Bold" VerticalOptions="Center" Text="Is Active?" />
-                    <CheckBox Grid.Row="3" Grid.Column="1" VerticalOptions="Center" IsChecked="{Binding Contract.IsActive}" />
+                    <CheckBox Grid.Row="3" Grid.Column="1" VerticalOptions="Center" IsEnabled="False" IsChecked="{Binding Contract.IsActive}" />
 
                     <Label Grid.Row="4" FontAttributes="Bold" Text="Remarks" />
                     <Label Grid.Row="4" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" Text="{Binding Contract.Remarks}" />

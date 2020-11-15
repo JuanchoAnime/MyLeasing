@@ -14,30 +14,8 @@
         private string _password;
         private bool _isRunning;
         private bool _isEnabled;
-        private DelegateCommand _loginCommand;
 
-        public LoginPageViewModel(INavigationService navigationService, MyLeasingService myLeasingService) 
-            : base(navigationService)
-        {
-            Title = Languages.Login;
-            IsEnabled = true;
-            this._myLeasingService = myLeasingService;
-
-            EnterEmail = Languages.EnterEmail;
-            EnterPassword = Languages.EnterPassword;
-            EmailPlaceHolder = Languages.EmailPlaceHolder;
-            PasswordPlaceHolder = Languages.PasswordPlaceHolder;
-            Loading = Languages.Loading;
-        }
-
-        public DelegateCommand LoginCommand
-        {
-            get
-            {
-                _loginCommand = _loginCommand ?? new DelegateCommand(Login);
-                return _loginCommand;
-            }
-        }
+        #region Contants
 
         public string Email { get; set; }
 
@@ -50,6 +28,31 @@
         public string PasswordPlaceHolder { get; set; }
 
         public string Loading { get; set; }
+
+        public string Rememberme { get; set; }
+
+        public string SignUp { get; set; }
+
+        public string TextRegister { get; set; }
+
+        public string ForgotPassword { get; set; }
+
+        #endregion
+
+        public LoginPageViewModel(INavigationService navigationService, MyLeasingService myLeasingService)
+            : base(navigationService)
+        {
+            Title = Languages.Login;
+            IsEnabled = true;
+            this._myLeasingService = myLeasingService;
+            TranslateConstants();
+        }
+
+        public DelegateCommand SignUpCommand => new DelegateCommand(SignUpAsync);
+
+        public DelegateCommand LoginCommand => new DelegateCommand(Login);
+
+        public bool IsRecord { get; set; }
 
         public string Password
         {
@@ -85,7 +88,8 @@
             IsEnabled = false;
 
             var response = await _myLeasingService.CheckConnectionAsync();
-            if (!response.IsSuccess) {
+            if (!response.IsSuccess)
+            {
                 IsRunning = false;
                 IsEnabled = true;
                 Password = string.Empty;
@@ -106,6 +110,24 @@
             await NavigationService.NavigateAsync($"/{nameof(LeasingMasterDetail)}/{nameof(NavigationPage)}/{nameof(PropertiesPage)}");
             IsRunning = false;
             IsEnabled = true;
+        }
+
+        private async void SignUpAsync()
+        {
+
+        }
+
+        private void TranslateConstants()
+        {
+            EnterEmail = Languages.EnterEmail;
+            EnterPassword = Languages.EnterPassword;
+            EmailPlaceHolder = Languages.EmailPlaceHolder;
+            PasswordPlaceHolder = Languages.PasswordPlaceHolder;
+            Loading = Languages.Loading;
+            ForgotPassword = Languages.ForgotPassword;
+            TextRegister = Languages.TextRegister;
+            SignUp = Languages.SignUp;
+            Rememberme = Languages.Rememberme;
         }
     }
 }
