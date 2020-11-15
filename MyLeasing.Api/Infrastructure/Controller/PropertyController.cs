@@ -38,6 +38,13 @@
             return Ok(data);
         }
 
+        [HttpPost("property/{idProperty}/AddImage/v2")]
+        public async Task<IActionResult> AddImageV2(ImageRest imageRest)
+        {
+            var data = await this._propertyApplication.SaveImage(imageRest);
+            return Ok(data);
+        }
+
         [HttpPost("property/{idProperty}/AddContract")]
         public async Task<IActionResult> AddContract(int idProperty, ContractRest contractRest)
         {

@@ -42,14 +42,14 @@
             if (!CrossConnectivity.Current.IsConnected)
                 return new Response<string> { 
                     IsSuccess = false, 
-                    Message = "Turn Off Conection" 
+                    Message = Languages.TurnConection
                 };
 
             var ping = await CrossConnectivity.Current.IsRemoteReachable(Constants.UrlPing);
             if(!ping)
                 return new Response<string> { 
                     IsSuccess = false, 
-                    Message = "Check Internet Conection" 
+                    Message = Languages.CheckConection
                 };
 
             return new Response<string> { IsSuccess = true };

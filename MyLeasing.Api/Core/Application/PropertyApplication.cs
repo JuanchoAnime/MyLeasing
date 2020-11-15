@@ -6,6 +6,7 @@
     using MyLeasing.Api.Infrastructure.Repository.Interface;
     using MyLeasing.Common.AdvancedRest;
     using MyLeasing.Common.Rest;
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -37,6 +38,12 @@
             entity.PropertiesImages = new List<PropertyImageRest>();
             var data = await this.propertyRepository.AddProperty(Mapper.Map<PropertyDto>(entity), entity.IdOwner);
             return Mapper.Map<PropertyRest>(data);
+        }
+
+        internal async Task<PropertyWithOwner> SaveImage(ImageRest imageRest)
+        {
+            var data = await propertyImageRepository.SaveData(imageRest);
+            return Mapper.Map<PropertyWithOwner>(data);
         }
 
         public async Task<PropertyWithOwner> GetEntityInfoById(int id)

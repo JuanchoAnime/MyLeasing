@@ -3,6 +3,7 @@
     using MyLeasing.Helpers;
     using MyLeasing.Service;
     using MyLeasing.Views;
+    using Newtonsoft.Json;
     using Prism.Commands;
     using Prism.Navigation;
 
@@ -20,6 +21,11 @@
             Title = Languages.Login;
             IsEnabled = true;
             this._myLeasingService = myLeasingService;
+
+            EnterEmail = Languages.EnterEmail;
+            EnterPassword = Languages.EnterPassword;
+            EmailPlaceHolder = Languages.EmailPlaceHolder;
+            PasswordPlaceHolder = Languages.PasswordPlaceHolder;
         }
 
         public DelegateCommand LoginCommand
@@ -32,6 +38,14 @@
         }
 
         public string Email { get; set; }
+
+        public string EnterEmail { get; set; }
+
+        public string EnterPassword { get; set; }
+
+        public string EmailPlaceHolder { get; set; }
+
+        public string PasswordPlaceHolder { get; set; }
 
         public string Password
         {
@@ -70,6 +84,7 @@
             if (!response.IsSuccess) {
                 IsRunning = false;
                 IsEnabled = true;
+                Password = string.Empty;
                 await this.ShowMessage(response.Message);
                 return;
             }
@@ -83,7 +98,8 @@
                 await this.ShowMessage(result.Message);
                 return;
             }
-            await NavigationService.NavigateAsync($"{nameof(PropertiesPage)}", (Constants.ParamOwner, result.Result));
+            Settings.Owner = JsonConvert.SerializeObject(result.Result);
+            await NavigationService.NavigateAsync($"{nameof(PropertiesPage)}");
             IsRunning = false;
             IsEnabled = true;
         }

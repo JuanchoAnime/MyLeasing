@@ -5,6 +5,7 @@
     using MyLeasing.Views;
     using Newtonsoft.Json;
     using Prism.Navigation;
+    using System;
     using System.Collections.ObjectModel;
     using System.Linq;
     using System.Windows.Input;
@@ -30,24 +31,23 @@
         public PropertiesPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
+            GetData();
         }
 
         public ICommand GotoPropertyCommand => new Command(GotoProperty);
+
+        private void GetData()
+        {
+            var _owner = JsonConvert.DeserializeObject<OwnerResponse>(Settings.Owner);
+            Properties = new ObservableCollection<PropertyResponse>(_owner.Properties);
+            PropertyTypes = new ObservableCollection<string>(_owner.Properties.Select(p => p.PropertyType).Distinct());
+        }
 
         private async void GotoProperty(object obj)
         {
             var property = obj as PropertyResponse;
             Settings.PropertyResponse = JsonConvert.SerializeObject(property);
             await NavigationService.NavigateAsync($"{nameof(HomeTabbedPage)}");
-        }
-
-        public override void OnNavigatedTo(INavigationParameters parameters)
-        {
-            if (parameters.ContainsKey(Constants.ParamOwner)) {
-                var _owner = parameters.GetValue<OwnerResponse>(Constants.ParamOwner);
-                Properties = new ObservableCollection<PropertyResponse>(_owner.Properties);
-                PropertyTypes = new ObservableCollection<string>(_owner.Properties.Select(p => p.PropertyType).Distinct());
-            }
         }
     }
 }

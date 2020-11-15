@@ -153,4 +153,10 @@
   <data name="ContractDetailPage" xml:space="preserve">
     <value>Contrato de:</value>
   </data>
+  <data name="CheckConection" xml:space="preserve">
+    <value>Por Favor Revise su Conexión a Internet</value>
+  </data>
+  <data name="TurnConection" xml:space="preserve">
+    <value>Por Favor Active su Conexión a Internet</value>
+  </data>
 </root>

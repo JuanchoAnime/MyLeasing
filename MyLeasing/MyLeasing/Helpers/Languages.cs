@@ -36,5 +36,9 @@
         public static string ContractPage => Resource.ContractPage;
 
         public static string ContractDetailPage => Resource.ContractDetailPage;
+
+        public static string CheckConection => Resource.CheckConection;
+
+        public static string TurnConection => Resource.TurnConection;
     }
 }

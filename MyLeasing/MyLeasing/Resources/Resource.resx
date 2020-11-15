@@ -120,6 +120,9 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="CheckConection" xml:space="preserve">
+    <value>Check Internet Conection</value>
+  </data>
   <data name="ContractDetailPage" xml:space="preserve">
     <value>Contract Of:</value>
   </data>
@@ -152,5 +155,8 @@
   </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="TurnConection" xml:space="preserve">
+    <value>Please Turn Your Internet Conection</value>
   </data>
 </root>

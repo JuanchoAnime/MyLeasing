@@ -70,6 +70,15 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Check Internet Conection.
+        /// </summary>
+        public static string CheckConection {
+            get {
+                return ResourceManager.GetString("CheckConection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Contract Of:.
         /// </summary>
         public static string ContractDetailPage {
@@ -165,6 +174,15 @@ namespace MyLeasing.Resources {
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Please Turn Your Internet Conection.
+        /// </summary>
+        public static string TurnConection {
+            get {
+                return ResourceManager.GetString("TurnConection", resourceCulture);
             }
         }
     }

@@ -18,22 +18,23 @@
 
                 <Grid RowDefinitions="*,Auto,*">
                     <StackLayout Grid.Row="1" Padding="10,0 " VerticalOptions="Center">
-                        <Label x:Name="lblEmail" />
+                        <Label Text="{Binding EmailPlaceHolder}" />
                         <Entry Keyboard="Email"
                             IsEnabled="{Binding IsEnabled}"
-                            x:Name="txtEmail"
+                            Placeholder="{Binding EnterEmail}"
                             Text="{Binding Email}" />
-                        <Label  x:Name="lblPassword" />
+                        <Label  Text="{Binding PasswordPlaceHolder}" />
                         <Entry IsPassword="True"
                             IsEnabled="{Binding IsEnabled}"
-                            x:Name="txtPassword"
+                            Placeholder="{Binding EnterPassword}"
                             Text="{Binding Password}"/>
                     </StackLayout>
-                    <Button x:Name="btnLogin"
-                            Grid.Row="2"
+                    <Button Grid.Row="2"
+                            Margin="20"
                             Padding="0,10"
                             BackgroundColor="Navy"
                             TextColor="White"
+                            Text="{Binding Title}"
                             CornerRadius="23"
                             VerticalOptions="End"
                             HeightRequest="46"

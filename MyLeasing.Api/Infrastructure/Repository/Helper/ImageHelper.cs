@@ -8,16 +8,32 @@
 
     public class ImageHelper : IImageHelper
     {
+        public static string FOLDER = "images\\Properties";
+
         public async Task<string> UploadImageAsync(IFormFile formFile)
         {
-            var guid = Guid.NewGuid().ToString();
-            var file = $"{guid}.png";
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "images\\Properties", file);
+            var file = $"{Guid.NewGuid()}.png";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), FOLDER, file);
             using (var stream = new FileStream(path, FileMode.Create)) 
             {
                 await formFile.CopyToAsync(stream);
             }
             return $"~/images/Properties/{file}";
+        }
+
+        public async Task<string> UploadPhotoAsync(MemoryStream stream) 
+        {
+            try
+            {
+                var name = $"{Guid.NewGuid()}.jpg";
+                stream.Position = 0;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), FOLDER, name);
+                await File.WriteAllBytesAsync(path, stream.ToArray());
+                return $"~/images/Properties/{name}";
+            }
+            catch {
+                throw new Exception("F Bro...");
+            }
         }
     }
 }

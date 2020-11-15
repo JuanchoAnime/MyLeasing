@@ -8,5 +8,7 @@
     public interface IPropertyImageRepository
     {
         Task<PropertyDto> SaveData(int property, IFormFile formFile);
+
+        Task<PropertyDto> SaveData(ImageRest imageRest);
     }
 }
