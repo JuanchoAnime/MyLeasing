@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyLeasing.Views.RegisterPage"
+             NavigationPage.HasNavigationBar="False"
+             Title="{Binding Title}">
+    <StackLayout VerticalOptions="FillAndExpand" >
+        <Grid>
+            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
+            </BoxView>
+            <Image HorizontalOptions="StartAndExpand"
+                   HeightRequest="20"
+                   Margin="10,0"
+                   WidthRequest="20"
+                   Source="back">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PopupCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
+                   VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+        </Grid>
+        <AbsoluteLayout>
+            <ScrollView>
+                <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"
+                             Padding="10">
+                    <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                        <Label Text="{Binding DocumentText}" VerticalOptions="Center" />
+                        <Entry Grid.Column="1" 
+                               Placeholder="{Binding DocumentPlaceHolder}"
+                               Text="{Binding Document}"/>
+
+                        <Label Grid.Row="1" Text="{Binding FirstNameText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="1" Grid.Column="1"
+                               Placeholder="{Binding FirstNamePlaceHolder}"
+                               Text="{Binding FirstName}"/>
+
+                        <Label Grid.Row="2" Text="{Binding LastNameText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="2" Grid.Column="1"
+                               Placeholder="{Binding LastNamePlaceHolder}"
+                               Text="{Binding LasttName}"/>
+                        <Label Grid.Row="3" Text="{Binding AddressText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="3" Grid.Column="1"
+                               Placeholder="{Binding AddressPlaceHolder}"
+                               Text="{Binding Address}"/>
+                        <Label Grid.Row="4" Text="{Binding EmailText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="4" Grid.Column="1"
+                               Placeholder="{Binding EmailPlaceHolder}"
+                               Text="{Binding Email}"/>
+                        <Label Grid.Row="5" Text="{Binding PhoneText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="5" Grid.Column="1"
+                               Placeholder="{Binding PhonePlaceHolder}"
+                               Text="{Binding Phone}"/>
+                        
+                        <Label Grid.Row="6" Text="{Binding RoleText }" VerticalOptions="Center" />
+                        <Picker Grid.Row="6" Grid.Column="1" 
+                                ItemDisplayBinding="{Binding .}"
+                                ItemsSource="{Binding Roles}"
+                                Title="{Binding RolePlaceHolder}"
+                                SelectedIndex="{Binding Role}"/>
+
+                        <Label Grid.Row="7" Text="{Binding PasswordText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="7" Grid.Column="1"
+                               IsPassword="True"
+                               Placeholder="{Binding PasswordPlaceHolder}"
+                               Text="{Binding Password}"/>
+                        <Label Grid.Row="8" Text="{Binding PasswordConfirmText }" VerticalOptions="Center" />
+                        <Entry Grid.Row="8" Grid.Column="1"
+                               IsPassword="True"
+                               Placeholder="{Binding PasswordConfirmPlaceHolder}"
+                               Text="{Binding PasswordConfirm}"/>
+                        
+                    </Grid>
+                    <Button Command="{Binding RegisterCommand}"
+                            IsEnabled="{Binding IsEnabled}"
+                            Margin="10"
+                            Padding="0,10"
+                            TextColor="White"
+                            BackgroundColor="Navy"
+                            Text="{Binding Title}"
+                            CornerRadius="23"
+                            VerticalOptions="End"
+                            HeightRequest="46"/>
+                </StackLayout>
+            </ScrollView>
+            <ContentView BackgroundColor="#C0808080" Padding="10, 0" 
+                         IsVisible="{Binding IsRunning}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                         AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Vertical" HeightRequest="150" 
+                             WidthRequest="200" BackgroundColor="White"
+                             VerticalOptions="Center" HorizontalOptions="Center">
+                    <ActivityIndicator Margin="0,50,0,0" VerticalOptions="Center" 
+                                       HorizontalOptions="Center" Color="Black" 
+                                       WidthRequest="30" HeightRequest="30"
+                                       IsRunning="{Binding IsRunning}"/>
+                    <Label TextColor="Black" VerticalOptions="Center" 
+                           HorizontalOptions="Center" VerticalTextAlignment="Center" 
+                           Text="{Binding Loading}" FontSize="20" ></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </StackLayout>
+</ContentPage>

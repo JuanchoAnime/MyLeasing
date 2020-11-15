@@ -9,9 +9,17 @@
     <StackLayout VerticalOptions="FillAndExpand" >
 
         <Grid>
-            <BoxView BackgroundColor="#1976D2" HeightRequest="70">
-            </BoxView>
-            <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
+            <BoxView BackgroundColor="#1976D2" HeightRequest="70" />
+            <Image HorizontalOptions="StartAndExpand"
+                   HeightRequest="20"
+                   Margin="10,0"
+                   WidthRequest="20"
+                   Source="back">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding PopupCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+                <Label Text="{Binding Title}" FontSize="20" FontAttributes="Bold" Margin="10"
                    VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
         </Grid>
         <ScrollView VerticalOptions="FillAndExpand">

@@ -2,6 +2,7 @@
 {
     using MyLeasing.Common.Response;
     using MyLeasing.Helpers;
+    using Prism.Commands;
     using Prism.Navigation;
 
     public class ContractPageViewModel : ViewModelBase
@@ -19,6 +20,13 @@
         {
             get => _contract;
             set => SetProperty(ref _contract, value);
+        }
+
+        public DelegateCommand PopupCommand => new DelegateCommand(Popup);
+
+        private async void Popup()
+        {
+            await NavigationService.GoBackAsync();
         }
 
         public override void OnNavigatedTo(INavigationParameters parameters)

@@ -112,10 +112,7 @@
             IsEnabled = true;
         }
 
-        private async void SignUpAsync()
-        {
-
-        }
+        private async void SignUpAsync() { await NavigationService.NavigateAsync($"{nameof(RegisterPage)}"); }
 
         private void TranslateConstants()
         {
