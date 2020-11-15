@@ -6,6 +6,7 @@
     using Newtonsoft.Json;
     using Prism.Commands;
     using Prism.Navigation;
+    using Xamarin.Forms;
 
     public class LoginPageViewModel : ViewModelBase
     {
@@ -26,6 +27,7 @@
             EnterPassword = Languages.EnterPassword;
             EmailPlaceHolder = Languages.EmailPlaceHolder;
             PasswordPlaceHolder = Languages.PasswordPlaceHolder;
+            Loading = Languages.Loading;
         }
 
         public DelegateCommand LoginCommand
@@ -46,6 +48,8 @@
         public string EmailPlaceHolder { get; set; }
 
         public string PasswordPlaceHolder { get; set; }
+
+        public string Loading { get; set; }
 
         public string Password
         {
@@ -99,7 +103,7 @@
                 return;
             }
             Settings.Owner = JsonConvert.SerializeObject(result.Result);
-            await NavigationService.NavigateAsync($"{nameof(PropertiesPage)}");
+            await NavigationService.NavigateAsync($"/{nameof(LeasingMasterDetail)}/{nameof(NavigationPage)}/{nameof(PropertiesPage)}");
             IsRunning = false;
             IsEnabled = true;
         }

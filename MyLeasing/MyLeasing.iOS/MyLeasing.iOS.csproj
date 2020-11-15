@@ -281,5 +281,14 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_action_home.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_pin_drop.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

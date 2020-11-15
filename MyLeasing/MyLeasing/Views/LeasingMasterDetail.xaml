@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="http://prismlibrary.com"
+                  xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="MyLeasing.Views.LeasingMasterDetail">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <Grid>
+                <Image Aspect="AspectFill" 
+                   Source="bg"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"/>
+                <BoxView Color="#A1A1A1" Opacity="0.9" />
+                <StackLayout Spacing="20"
+                    Padding="35"
+                    WidthRequest="250"
+                    BindableLayout.ItemsSource="{Binding MyMenu}"
+                    VerticalOptions="CenterAndExpand">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding GotoMenuCommand }" />
+                                </StackLayout.GestureRecognizers>
+                                <pv:PancakeView BackgroundColor="#557ED2"
+                                            HeightRequest="40"
+                                            WidthRequest="40"
+                                            CornerRadius="20"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Start">
+                                    <Image Source="{Binding Icon}"
+                                            HeightRequest="20"
+                                            WidthRequest="20"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"/>
+                                </pv:PancakeView>
+                                <Label Text="{Binding Title}"
+                                            TextColor="White"
+                                            FontSize="20"
+                                            FontAttributes="Bold"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>

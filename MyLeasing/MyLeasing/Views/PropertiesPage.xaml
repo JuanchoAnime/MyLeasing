@@ -24,7 +24,11 @@
                        HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
                 <Image HeightRequest="20" WidthRequest="20"
                        Margin="20,0" Source="filter"
-                       Grid.Column="2"/>
+                       Grid.Column="2" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ShowMenuCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>
             </Grid>
             
         </Frame>

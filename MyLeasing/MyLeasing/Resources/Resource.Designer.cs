@@ -97,6 +97,15 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Contracts.
+        /// </summary>
+        public static string Contracts {
+            get {
+                return ResourceManager.GetString("Contracts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a You Must Enter An Email..
         /// </summary>
         public static string EmailError {
@@ -151,11 +160,47 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Loading....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Login.
         /// </summary>
         public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a LogOut.
+        /// </summary>
+        public static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Maps.
+        /// </summary>
+        public static string Maps {
+            get {
+                return ResourceManager.GetString("Maps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Modify User.
+        /// </summary>
+        public static string ModifyUser {
+            get {
+                return ResourceManager.GetString("ModifyUser", resourceCulture);
             }
         }
         
@@ -174,6 +219,15 @@ namespace MyLeasing.Resources {
         public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Properties.
+        /// </summary>
+        public static string Properties {
+            get {
+                return ResourceManager.GetString("Properties", resourceCulture);
             }
         }
         

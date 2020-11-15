@@ -15,12 +15,12 @@ namespace MyLeasing
             : base(initializer)
         {
         }
+        public static LeasingMasterDetail Master { get; internal set; }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            await NavigationService.NavigateAsync($"{nameof(NavigationPage)}/{nameof(LoginPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -35,6 +35,10 @@ namespace MyLeasing
             containerRegistry.RegisterForNavigation<ContractsPage, ContractsPageViewModel>();
             containerRegistry.RegisterForNavigation<ContractPage, ContractPageViewModel>();
             containerRegistry.RegisterForNavigation<HomeTabbedPage, HomeTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<LeasingMasterDetail, LeasingMasterDetailViewModel>();
+            containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapsPage, MapsPageViewModel>();
+            containerRegistry.RegisterForNavigation<MyContractsPage, MyContractsPageViewModel>();
         }
     }
 }

@@ -129,6 +129,9 @@
   <data name="ContractPage" xml:space="preserve">
     <value>Contracts</value>
   </data>
+  <data name="Contracts" xml:space="preserve">
+    <value>Contracts</value>
+  </data>
   <data name="EmailError" xml:space="preserve">
     <value>You Must Enter An Email.</value>
   </data>
@@ -147,14 +150,29 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>User Or Password Incorrect.</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>LogOut</value>
+  </data>
+  <data name="Maps" xml:space="preserve">
+    <value>Maps</value>
+  </data>
+  <data name="ModifyUser" xml:space="preserve">
+    <value>Modify User</value>
   </data>
   <data name="PasswordError" xml:space="preserve">
     <value>You Must Enter a Password.</value>
   </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="Properties" xml:space="preserve">
+    <value>Properties</value>
   </data>
   <data name="TurnConection" xml:space="preserve">
     <value>Please Turn Your Internet Conection</value>

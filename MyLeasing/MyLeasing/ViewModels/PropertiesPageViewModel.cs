@@ -4,6 +4,7 @@
     using MyLeasing.Helpers;
     using MyLeasing.Views;
     using Newtonsoft.Json;
+    using Prism.Commands;
     using Prism.Navigation;
     using System;
     using System.Collections.ObjectModel;
@@ -35,6 +36,12 @@
         }
 
         public ICommand GotoPropertyCommand => new Command(GotoProperty);
+        public DelegateCommand ShowMenuCommand => new DelegateCommand(ShowMenu);
+
+        private void ShowMenu()
+        {
+            App.Master.IsPresented = true;
+        }
 
         private void GetData()
         {

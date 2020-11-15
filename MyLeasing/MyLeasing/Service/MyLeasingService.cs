@@ -44,13 +44,13 @@
                     IsSuccess = false, 
                     Message = Languages.TurnConection
                 };
-
+            /*
             var ping = await CrossConnectivity.Current.IsRemoteReachable(Constants.UrlPing);
             if(!ping)
                 return new Response<string> { 
                     IsSuccess = false, 
                     Message = Languages.CheckConection
-                };
+                };*/
 
             return new Response<string> { IsSuccess = true };
         }

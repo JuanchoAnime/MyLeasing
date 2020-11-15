@@ -10,6 +10,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:controls="clr-namespace:PanCardView.Controls;assembly=PanCardView"
              x:Class="MyLeasing.Views.PropertyDetailPage"
+             NavigationPage.HasNavigationBar="False"
              Title="{Binding Title}">
 
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"

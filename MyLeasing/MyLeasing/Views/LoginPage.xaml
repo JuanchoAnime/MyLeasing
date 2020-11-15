@@ -56,7 +56,7 @@
                                            IsRunning="{Binding IsRunning}"/>
                         <Label TextColor="Black" VerticalOptions="Center" 
                                HorizontalOptions="Center" VerticalTextAlignment="Center" 
-                               Text="Loading..." FontSize="20" ></Label>
+                               Text="{Binding Loading}" FontSize="20" ></Label>
                     </StackLayout>
                 </StackLayout>
             </ContentView>
