@@ -60,5 +60,35 @@
         public static string ForgotPassword => Resource.ForgotPassword;
 
         public static string Rememberme => Resource.Rememberme;
+
+        public static string DocumentText => Resource.DocumentText;
+
+        public static string FirstNameText => Resource.FirstNameText;
+
+        public static string LastNameText => Resource.LastNameText;
+
+        public static string AddressText => Resource.AddressText;
+
+        public static string PhoneText => Resource.PhoneText;
+
+        public static string RoleText => Resource.RoleText;
+
+        public static string PasswordConfirmText => Resource.PasswordConfirmText;
+
+        public static string DocumentPlaceHolder => Resource.DocumentPlaceHolder;
+
+        public static string FirstNamePlaceHolder => Resource.FirstNamePlaceHolder;
+
+        public static string LastNamePlaceHolder => Resource.LastNamePlaceHolder;
+
+        public static string AddressPlaceHolder => Resource.AddressPlaceHolder;
+
+        public static string PhonePlaceHolder => Resource.PhonePlaceHolder;
+
+        public static string RolePlaceHolder => Resource.RolePlaceHolder;
+
+        public static string PasswordConfirmPlaceHolder => Resource.PasswordConfirmPlaceHolder;
+
+        public static string ConfirmInvalid => Resource.ConfirmInvalid;
     }
 }

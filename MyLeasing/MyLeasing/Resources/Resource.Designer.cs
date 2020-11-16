@@ -70,11 +70,38 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your Address.
+        /// </summary>
+        public static string AddressPlaceHolder {
+            get {
+                return ResourceManager.GetString("AddressPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Address.
+        /// </summary>
+        public static string AddressText {
+            get {
+                return ResourceManager.GetString("AddressText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Check Internet Conection.
         /// </summary>
         public static string CheckConection {
             get {
                 return ResourceManager.GetString("CheckConection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password And Confirm Is Not Equals.
+        /// </summary>
+        public static string ConfirmInvalid {
+            get {
+                return ResourceManager.GetString("ConfirmInvalid", resourceCulture);
             }
         }
         
@@ -102,6 +129,24 @@ namespace MyLeasing.Resources {
         public static string Contracts {
             get {
                 return ResourceManager.GetString("Contracts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your Document number.
+        /// </summary>
+        public static string DocumentPlaceHolder {
+            get {
+                return ResourceManager.GetString("DocumentPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Document.
+        /// </summary>
+        public static string DocumentText {
+            get {
+                return ResourceManager.GetString("DocumentText", resourceCulture);
             }
         }
         
@@ -151,6 +196,24 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your First Name.
+        /// </summary>
+        public static string FirstNamePlaceHolder {
+            get {
+                return ResourceManager.GetString("FirstNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a First Name.
+        /// </summary>
+        public static string FirstNameText {
+            get {
+                return ResourceManager.GetString("FirstNameText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Forgot Your Password?.
         /// </summary>
         public static string ForgotPassword {
@@ -165,6 +228,24 @@ namespace MyLeasing.Resources {
         public static string InvalidLogin {
             get {
                 return ResourceManager.GetString("InvalidLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your Last Name.
+        /// </summary>
+        public static string LastNamePlaceHolder {
+            get {
+                return ResourceManager.GetString("LastNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Last Name.
+        /// </summary>
+        public static string LastNameText {
+            get {
+                return ResourceManager.GetString("LastNameText", resourceCulture);
             }
         }
         
@@ -214,6 +295,24 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your Password Confirm.
+        /// </summary>
+        public static string PasswordConfirmPlaceHolder {
+            get {
+                return ResourceManager.GetString("PasswordConfirmPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Password Confirm.
+        /// </summary>
+        public static string PasswordConfirmText {
+            get {
+                return ResourceManager.GetString("PasswordConfirmText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a You Must Enter a Password..
         /// </summary>
         public static string PasswordError {
@@ -232,6 +331,24 @@ namespace MyLeasing.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Enter Your Phone Number.
+        /// </summary>
+        public static string PhonePlaceHolder {
+            get {
+                return ResourceManager.GetString("PhonePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Telephone.
+        /// </summary>
+        public static string PhoneText {
+            get {
+                return ResourceManager.GetString("PhoneText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Properties.
         /// </summary>
         public static string Properties {
@@ -246,6 +363,24 @@ namespace MyLeasing.Resources {
         public static string Rememberme {
             get {
                 return ResourceManager.GetString("Rememberme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Select a Role.....
+        /// </summary>
+        public static string RolePlaceHolder {
+            get {
+                return ResourceManager.GetString("RolePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Register As....
+        /// </summary>
+        public static string RoleText {
+            get {
+                return ResourceManager.GetString("RoleText", resourceCulture);
             }
         }
         

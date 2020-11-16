@@ -40,17 +40,18 @@
                         <Label Grid.Row="2" Text="{Binding LastNameText }" VerticalOptions="Center" />
                         <Entry Grid.Row="2" Grid.Column="1"
                                Placeholder="{Binding LastNamePlaceHolder}"
-                               Text="{Binding LasttName}"/>
+                               Text="{Binding LastName}"/>
                         <Label Grid.Row="3" Text="{Binding AddressText }" VerticalOptions="Center" />
                         <Entry Grid.Row="3" Grid.Column="1"
                                Placeholder="{Binding AddressPlaceHolder}"
                                Text="{Binding Address}"/>
                         <Label Grid.Row="4" Text="{Binding EmailText }" VerticalOptions="Center" />
                         <Entry Grid.Row="4" Grid.Column="1"
-                               Placeholder="{Binding EmailPlaceHolder}"
-                               Text="{Binding Email}"/>
+                               Keyboard="Email" Text="{Binding Email}"
+                               Placeholder="{Binding EmailPlaceHolder}"/>
                         <Label Grid.Row="5" Text="{Binding PhoneText }" VerticalOptions="Center" />
                         <Entry Grid.Row="5" Grid.Column="1"
+                               Keyboard="Numeric"
                                Placeholder="{Binding PhonePlaceHolder}"
                                Text="{Binding Phone}"/>
                         
@@ -59,7 +60,7 @@
                                 ItemDisplayBinding="{Binding .}"
                                 ItemsSource="{Binding Roles}"
                                 Title="{Binding RolePlaceHolder}"
-                                SelectedIndex="{Binding Role}"/>
+                                SelectedItem="{Binding Role}"/>
 
                         <Label Grid.Row="7" Text="{Binding PasswordText }" VerticalOptions="Center" />
                         <Entry Grid.Row="7" Grid.Column="1"
@@ -81,7 +82,7 @@
                             BackgroundColor="Navy"
                             Text="{Binding Title}"
                             CornerRadius="23"
-                            VerticalOptions="End"
+                            VerticalOptions="EndAndExpand"
                             HeightRequest="46"/>
                 </StackLayout>
             </ScrollView>

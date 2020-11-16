@@ -106,6 +106,7 @@
     <None Include="Info.plist" />
     <LinkDescription Include="LinkerSettings.xml" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\girl_neko.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\Contents.json">
@@ -201,6 +202,9 @@
   <ItemGroup>
     <PackageReference Include="CardsView">
       <Version>2.6.8</Version>
+    </PackageReference>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.6</Version>
     </PackageReference>
     <PackageReference Include="Refit">
       <Version>5.2.1</Version>

@@ -120,8 +120,17 @@
   <data name="Accept" xml:space="preserve">
     <value>Accept</value>
   </data>
+  <data name="AddressPlaceHolder" xml:space="preserve">
+    <value>Enter Your Address</value>
+  </data>
+  <data name="AddressText" xml:space="preserve">
+    <value>Address</value>
+  </data>
   <data name="CheckConection" xml:space="preserve">
     <value>Check Internet Conection</value>
+  </data>
+  <data name="ConfirmInvalid" xml:space="preserve">
+    <value>Password And Confirm Is Not Equals</value>
   </data>
   <data name="ContractDetailPage" xml:space="preserve">
     <value>Contract Of:</value>
@@ -131,6 +140,12 @@
   </data>
   <data name="Contracts" xml:space="preserve">
     <value>Contracts</value>
+  </data>
+  <data name="DocumentPlaceHolder" xml:space="preserve">
+    <value>Enter Your Document number</value>
+  </data>
+  <data name="DocumentText" xml:space="preserve">
+    <value>Document</value>
   </data>
   <data name="EmailError" xml:space="preserve">
     <value>You Must Enter An Email.</value>
@@ -147,11 +162,23 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="FirstNamePlaceHolder" xml:space="preserve">
+    <value>Enter Your First Name</value>
+  </data>
+  <data name="FirstNameText" xml:space="preserve">
+    <value>First Name</value>
+  </data>
   <data name="ForgotPassword" xml:space="preserve">
     <value>Forgot Your Password?</value>
   </data>
   <data name="InvalidLogin" xml:space="preserve">
     <value>User Or Password Incorrect.</value>
+  </data>
+  <data name="LastNamePlaceHolder" xml:space="preserve">
+    <value>Enter Your Last Name</value>
+  </data>
+  <data name="LastNameText" xml:space="preserve">
+    <value>Last Name</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading...</value>
@@ -168,17 +195,35 @@
   <data name="ModifyUser" xml:space="preserve">
     <value>Modify User</value>
   </data>
+  <data name="PasswordConfirmPlaceHolder" xml:space="preserve">
+    <value>Enter Your Password Confirm</value>
+  </data>
+  <data name="PasswordConfirmText" xml:space="preserve">
+    <value>Password Confirm</value>
+  </data>
   <data name="PasswordError" xml:space="preserve">
     <value>You Must Enter a Password.</value>
   </data>
   <data name="PasswordPlaceHolder" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PhonePlaceHolder" xml:space="preserve">
+    <value>Enter Your Phone Number</value>
+  </data>
+  <data name="PhoneText" xml:space="preserve">
+    <value>Telephone</value>
+  </data>
   <data name="Properties" xml:space="preserve">
     <value>Properties</value>
   </data>
   <data name="Rememberme" xml:space="preserve">
     <value>Keep me logged in</value>
+  </data>
+  <data name="RolePlaceHolder" xml:space="preserve">
+    <value>Select a Role....</value>
+  </data>
+  <data name="RoleText" xml:space="preserve">
+    <value>Register As...</value>
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>SignUp</value>

@@ -1,6 +1,7 @@
 ﻿namespace MyLeasing.Service
 {
     using MyLeasing.Common.Response;
+    using MyLeasing.Common.Rest;
     using MyLeasing.Helpers;
     using MyLeasing.Model;
     using MyLeasing.ViewModels;
@@ -53,6 +54,22 @@
                 };*/
 
             return new Response<string> { IsSuccess = true };
+        }
+
+        internal async Task<Response<UserRest>> RegisterUser(ViewModelBase viewModel, AutoRegisterRest autoregister)
+        {
+            try
+            {
+                var user = await RestService.For<IMyLeasingService>(viewModel.GetStringForDistionary(Constants.UrlApi)).CreateUser(autoregister);
+                if (user == null) {
+                    return new Response<UserRest> { IsSuccess = false, Message = "F Bro..." };
+                }
+                return new Response<UserRest> { IsSuccess = true, Result = user };
+            }
+            catch (Exception ex)
+            {
+                return new Response<UserRest> { IsSuccess = false, Message = ex.Message };
+            }
         }
     }
 }

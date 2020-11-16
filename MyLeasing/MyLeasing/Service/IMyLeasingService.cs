@@ -9,5 +9,8 @@
     {
         [Post("/api/owner/getOwnerByEmail")]
         Task<OwnerResponse> GetOwnerByEmail([Body] EmailRequest emailRequest);
+
+        [Post("/api/account")]
+        Task<UserRest> CreateUser([Body] AutoRegisterRest emailRequest);
     }
 }

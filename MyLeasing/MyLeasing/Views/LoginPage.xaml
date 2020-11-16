@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:prism="http://prismlibrary.com"
+             xmlns:prism="http://prismlibrary.com" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              NavigationPage.HasNavigationBar="False"
              x:Class="MyLeasing.Views.LoginPage"
@@ -75,13 +75,13 @@
             <ContentView BackgroundColor="#C0808080" Padding="10, 0" 
                          IsVisible="{Binding IsRunning}" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
                          AbsoluteLayout.LayoutFlags="All">
-                <StackLayout Orientation="Vertical" HeightRequest="150" 
-                             WidthRequest="200" BackgroundColor="White"
-                             VerticalOptions="Center" HorizontalOptions="Center">
-                    <ActivityIndicator Margin="0,50,0,0" VerticalOptions="Center" 
-                                       HorizontalOptions="Center" Color="Black" 
-                                       WidthRequest="30" HeightRequest="30"
-                                       IsRunning="{Binding IsRunning}"/>
+                <StackLayout Orientation="Vertical" HeightRequest="300" 
+                             WidthRequest="300" BackgroundColor="White"
+                             VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                    <forms:AnimationView Animation="girl_neko.json" AnimationSource="AssetOrBundle"
+                                         Command="{Binding ClickCommand}" AutoPlay="True"
+                                         RepeatMode="Infinite" VerticalOptions="Center"
+                                         HeightRequest="250" WidthRequest="250"/>
                     <Label TextColor="Black" VerticalOptions="Center" 
                            HorizontalOptions="Center" VerticalTextAlignment="Center" 
                            Text="{Binding Loading}" FontSize="20" ></Label>

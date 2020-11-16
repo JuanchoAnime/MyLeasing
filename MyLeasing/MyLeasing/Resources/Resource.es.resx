@@ -189,4 +189,49 @@
   <data name="TextRegister" xml:space="preserve">
     <value>No tiene una Cuenta con Nosotros?</value>
   </data>
+  <data name="AddressPlaceHolder" xml:space="preserve">
+    <value>Ingrese su Dirección</value>
+  </data>
+  <data name="AddressText" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="ConfirmInvalid" xml:space="preserve">
+    <value>La Contraseña y la Confirmación no son Iguales</value>
+  </data>
+  <data name="DocumentPlaceHolder" xml:space="preserve">
+    <value>Ingrese su número de documento</value>
+  </data>
+  <data name="DocumentText" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="FirstNamePlaceHolder" xml:space="preserve">
+    <value>Ingrese su nombre</value>
+  </data>
+  <data name="FirstNameText" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="LastNamePlaceHolder" xml:space="preserve">
+    <value>Ingrese su(s) apellidos(s)</value>
+  </data>
+  <data name="LastNameText" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+  <data name="PasswordConfirmPlaceHolder" xml:space="preserve">
+    <value>Ingrese la confirmación</value>
+  </data>
+  <data name="PasswordConfirmText" xml:space="preserve">
+    <value>Confirmar Contraseña</value>
+  </data>
+  <data name="PhonePlaceHolder" xml:space="preserve">
+    <value>Ingrese su número telefonico</value>
+  </data>
+  <data name="PhoneText" xml:space="preserve">
+    <value>Telefono</value>
+  </data>
+  <data name="RolePlaceHolder" xml:space="preserve">
+    <value>Seleccione un Rol</value>
+  </data>
+  <data name="RoleText" xml:space="preserve">
+    <value>Registrarse como...</value>
+  </data>
 </root>
